@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require twitter/bootstrap
+//= require angular
+//= require angular-animate
+//= require angular-resource
+// require tinymce-jquery
 //= require_tree .

@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.4.3'
 #use PostgreSQL
 gem 'pg'
 # user management
@@ -13,6 +12,7 @@ gem 'rmagick'
 
 gem 'slim-rails'
 gem 'kaminari'
+#gem 'bootstrap-kaminari-views'
 
 #assets
 gem 'twitter-bootstrap-rails'
@@ -52,10 +52,5 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-end
-
-group :test do
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
 end
 
