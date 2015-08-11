@@ -14,6 +14,8 @@ gem 'slim-rails'
 gem 'kaminari'
 #gem 'bootstrap-kaminari-views'
 
+gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
+
 #assets
 gem 'twitter-bootstrap-rails'
 gem 'angularjs-rails'
