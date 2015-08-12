@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'projects/index'
+
+  get 'projects/show'
+
   devise_for :users
   resources :users, only: [:index,:show]
 
