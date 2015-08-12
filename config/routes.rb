@@ -4,6 +4,13 @@ Rails.application.routes.draw do
   get 'projects/show'
 
   devise_for :users
+
+  scope module: 'admin', path: '/admin', as: 'admin' do
+    resources :users
+    get '', to: 'users#index'
+  end
+
+
   resources :users, only: [:index,:show]
 
 

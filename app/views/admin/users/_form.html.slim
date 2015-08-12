@@ -1,0 +1,23 @@
+= form_for [:admin, @user||User.new], multipart: true do |f|
+
+  = f.label :email
+  = f.email_field :email
+
+  = f.label :first_name
+  = f.text_field :first_name
+
+  = f.label :last_name
+  = f.text_field :last_name
+
+  = f.label :birthday
+  = f.date_select :birthday
+
+  = f.label 'Male ?'
+  = f.check_box :gender
+
+  - if f.object.new_record?
+    = f.label :password
+    = f.password_field :password
+    = f.password_field :password_confirmation
+
+  = f.button type: :submit
