@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'projects/index'
-
-  get 'projects/show'
-
   devise_for :users
 
   scope module: 'admin', path: '/admin', as: 'admin' do
@@ -10,8 +6,9 @@ Rails.application.routes.draw do
     get '', to: 'users#index'
   end
 
-
-  resources :users, only: [:index,:show]
+  resources :users, only: [:index, :show] do
+    resources :projects, only: [:index, :show]
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

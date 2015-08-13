@@ -1,6 +1,3 @@
-# http://startbootstrap.com/template-overviews/business-frontpage/ # main page
-# http://startbootstrap.com/template-overviews/1-col-portfolio/ # page for projects by user
-
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
