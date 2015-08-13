@@ -1,23 +1,34 @@
-= form_for [:admin, @user||User.new], multipart: true do |f|
+.container
+  = form_for [:admin, @user||User.new], multipart: true do |f|
+    = image_tag f.object.avatar.url(:thumbnail)
 
-  = f.label :email
-  = f.email_field :email
-
-  = f.label :first_name
-  = f.text_field :first_name
-
-  = f.label :last_name
-  = f.text_field :last_name
-
-  = f.label :birthday
-  = f.date_select :birthday
-
-  = f.label 'Male ?'
-  = f.check_box :gender
-
-  - if f.object.new_record?
-    = f.label :password
-    = f.password_field :password
-    = f.password_field :password_confirmation
-
-  = f.button type: :submit
+    .row
+      = f.hidden_field :avatar_cache
+      = f.file_field :avatar
+    .row
+      = f.label :email
+      = f.email_field :email
+    .row
+      = f.label :first_name
+      = f.text_field :first_name
+    .row
+      = f.label :last_name
+      = f.text_field :last_name
+    .row
+      .col-6
+        = f.label :birthday
+      .col-6
+        = f.date_select :birthday
+    .row
+      = f.label 'Male ?'
+      = f.check_box :gender
+    - if f.object.new_record?
+      .row
+        .col-4
+          = f.label :password
+        .col-4
+          = f.password_field :password
+        .col-4
+          = f.password_field :password_confirmation
+    .row
+      = f.button type: :submit

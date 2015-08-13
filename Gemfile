@@ -7,7 +7,8 @@ gem 'devise'
 
 #images
 gem 'carrierwave'
-gem 'rmagick'
+gem 'mini_magick'
+gem 'cloudinary'
 
 
 gem 'slim-rails'
