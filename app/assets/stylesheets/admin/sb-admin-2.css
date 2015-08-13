@@ -27,6 +27,12 @@ body {
     }
 }
 
+.nav > li.parted a {
+    display: block;
+    padding: 10px 15px;
+    position: relative;
+}
+
 .navbar-top-links {
     margin-right: 0;
 }

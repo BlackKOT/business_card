@@ -12,10 +12,17 @@
       /  a href="index.html"
       /    i.fa.fa-dashboard.fa-fw
       /    | Dashboard
-      li
-        =link_to [:admin, :users] do
-          i.fa.fa-bar-chart-o.fa-fw
-          | Users
+      li.parted
+        .row.clear
+          .col-md-8
+            = link_to [:admin, :users] do
+              i.fa.fa-bar-chart-o.fa-fw
+              | Users
+
+          .col-md-4
+            = link_to [:new, :admin, :user] do
+              i.fa.fa-plus
+
           /span.fa.arrow
         /ul.nav.nav-second-level
         /  li
@@ -24,10 +31,17 @@
         /    a href="morris.html"  Morris.js Charts
       /! /.nav-second-level
 
-      li
-        =link_to [:admin, :projects] do
-          i.fa.fa-bar-chart-o.fa-fw
-          | Projects
+      li.parted
+        .row.clear
+          .col-md-8
+            = link_to [:admin, :projects] do
+              i.fa.fa-bar-chart-o.fa-fw
+              | Projects
+
+          .col-md-4
+            = link_to [:new, :admin, :project] do
+              i.fa.fa-plus
+
       li
         =link_to [:admin, :components] do
           i.fa.fa-bar-chart-o.fa-fw
