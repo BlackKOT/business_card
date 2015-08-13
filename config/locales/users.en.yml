@@ -1,0 +1,11 @@
+en:
+  users:
+    page_title: Our team
+
+    about_title: What We Do
+    about_text: Introduce the visitor to the business using clear, informative text. Use well-targeted keywords within your sentences to make sure search engines can find the business.
+    about_text_appendix: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et molestiae similique eligendi reiciendis sunt distinctio odit? Quia, neque, ipsa, adipisci quisquam ullam deserunt accusantium illo iste exercitationem nemo voluptates asperiores.
+
+    contact_us:
+      title: Contact Us
+      email: Email

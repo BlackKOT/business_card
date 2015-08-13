@@ -18,7 +18,9 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href="#"  Bla bla blashka
+          a.navbar-brand href="#" = t('brand_title')
+
+          == "#{lang_option('en')} / #{lang_option('ru')}"
         /! Collect the nav links, forms, and other content for toggling
         /#bs-example-navbar-collapse-1.collapse.navbar-collapse
         /  ul.nav.navbar-nav
@@ -39,4 +41,4 @@ html
     footer
       .row
         .col-lg-12
-          p Copyright &copy; Your Website 2012
+          p.text-center == "#{t('copyright')} &copy; 2012"

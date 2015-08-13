@@ -15,6 +15,10 @@
       = f.label :last_name
       = f.text_field :last_name, class: 'form-control'
     .row
+      = f.text_area :info, class: 'form-control tinymce'
+      = tinymce_assets
+      = tinymce
+    .row
       .col-6
         = f.label :birthday
       .col-6
