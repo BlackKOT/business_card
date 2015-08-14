@@ -17,11 +17,13 @@ gem 'kaminari'
 
 gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
 
+#nested
+gem 'nested_form'
+
 #assets
 gem 'twitter-bootstrap-rails'
 gem 'angularjs-rails'
 gem 'tinymce-rails'
-gem 'web-app-theme'
 gem 'rails_12factor'
 #Captcha for rails 4
 

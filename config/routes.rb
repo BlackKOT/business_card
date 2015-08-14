@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   scope module: 'admin', path: '/admin', as: 'admin' do
     resources :users
+    resources :projects
     get '', to: 'users#index'
   end
 

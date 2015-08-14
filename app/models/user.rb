@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :projects, dependent: :destroy
+  has_many :projects, through: :project_users
+  has_many :project_users, dependent: :destroy
 
   def full_name
     "#{first_name} #{last_name}"

@@ -1,0 +1,24 @@
+.container
+  = nested_form_for [:admin, @project||new_project], multipart: true do |f|
+    /= image_tag f.object.avatar.url(:thumbnail)
+    /
+    /.row
+    /  = f.hidden_field :avatar_cache
+    /  = f.file_field :avatar
+    .row
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+    .row
+      = f.label :company
+      = f.text_field :company, class: 'form-control'
+    .row
+      = f.label :info
+      = f.text_area :info, class: 'form-control'
+    .row
+      = f.label_tag 'Components'
+      = f.fields_for :component_projects do |cp|
+        = cp.collection_select :component_id, Component.all, :id, :name
+        = cp.link_to_remove 'Remove this component'
+      = f.link_to_add "Add a component", :component_projects
+    .row
+      = f.button type: :submit, class: 'btn btn-default'
