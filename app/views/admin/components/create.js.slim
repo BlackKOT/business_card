@@ -1,0 +1,11 @@
+- if @component.persisted?
+  /Nested form select monkey patch
+  | select = $('#component_projects_fields_blueprint').data('blueprint');
+  | position = select.indexOf('</select>');
+  | new_option = "<option value = '#{@component.id}'> #{@component.name} </option>";
+  | new_blueprint = [select.slice(0, position), new_option , select.slice(position)].join('');
+  | $('#component_projects_fields_blueprint').data('blueprint', new_blueprint);
+  | $('.componentsList').append(new_option);
+  | $('#componentModal').modal('hide');
+- else
+  | $('.modal-body').html("#{j render(partial: 'admin/components/form', layout: false, locals: { :@component => @component }) }");

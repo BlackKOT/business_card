@@ -1,0 +1,4 @@
+- if @component.destroyed?
+  | $('.ci_#{@component.id}').remove();
+- else
+  | alert('Error record deletion !');

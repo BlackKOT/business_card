@@ -8,11 +8,6 @@ class Admin::ComponentsController < Admin::AdminController
 
   def create
     @component = Component.create(component_params)
-    if @component.persisted?
-      redirect_to [:admin, :components]
-    else
-      render 'admin/components/_form'
-    end
   end
 
   def edit; end
@@ -27,11 +22,6 @@ class Admin::ComponentsController < Admin::AdminController
 
   def destroy
     @component.destroy
-    if @component.destroyed?
-      redirect_to [:admin, :components]
-    else
-      redirect_to [:admin, :components], alert: 'Error!'
-    end
   end
 
   private

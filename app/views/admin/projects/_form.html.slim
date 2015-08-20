@@ -20,7 +20,7 @@
       /button.btn.btn-default data-target="#componentModal" data-toggle="modal" type="button"
       = link_to 'New component', '#', class: 'btn btn-default', data: {target:'#componentModal', toggle: 'modal'}
       = f.fields_for :component_projects do |cp|
-        = cp.collection_select :component_id, Component.all, :id, :name
+        = cp.collection_select :component_id, Component.all, :id, :name, {}, class: 'componentsList'
         = cp.link_to_remove 'Remove this component'
       = f.link_to_add "Add a component", :component_projects
 

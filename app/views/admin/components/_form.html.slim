@@ -1,4 +1,4 @@
-= form_for [:admin, @component||Component.new] do |f|
+= form_for [:admin, @component||=Component.new], remote: @component.new_record? do |f|
   .row
     = f.label :name
     = f.text_field :name
