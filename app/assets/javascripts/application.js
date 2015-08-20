@@ -16,5 +16,4 @@
 //= require angular
 //= require angular-animate
 //= require angular-resource
-// require tinymce-jquery
 //= require_tree .

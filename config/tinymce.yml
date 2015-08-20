@@ -1,33 +1,33 @@
 #toolbar_location: top
 #toolbar_align: left
 #statusbar_location: bottom
-selector:
-  - textarea
+#selector:
+#  - textarea
 toolbar:
 #  - fullscreen
-  - undo redo
-  - bold italic
-  - fontselect
-  - fontsizeselect
-  - |
-  - forecolor backcolor
-  - colorpicker
-  - |
-  - alignleft
-  - aligncenter
-  - alignright
-  - alignjustify
-  - |
-  - bullist
-  - numlist
-  - outdent
-  - indent
-  - |
-  - link
-  - image
-  - media
-  - |
-  - code
+#  - forecolor backcolor
+#  - colorpicker
+#  - |
+#  - undo redo
+#  - bold italic
+#  - fontselect
+#  - fontsizeselect
+#  - |
+#  - alignleft
+#  - aligncenter
+#  - alignright
+#  - alignjustify
+#  - |
+#  - bullist
+#  - numlist
+#  - outdent
+#  - indent
+#  - |
+#  - link
+#  - image
+#  - media
+#  - |
+#  - code
 
 #  - anchor
 #  - image
@@ -54,8 +54,8 @@ plugins:
    - table
    - contextmenu
    - paste
-   - textcolor
-   - colorpicker
+#   - textcolor
+#   - colorpicker
 #  - table
 #  - fullscreen
 #  - media
