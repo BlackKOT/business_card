@@ -1,0 +1,7 @@
+.row
+  .col-md-6
+    = component.name
+  .col-md-3
+    = component.type_name
+  .col-md-3
+    =link_to 'Delete', [:admin, component], method: :delete, class: 'btn'

@@ -1,4 +1,5 @@
 .container
+  = render 'admin/components/modal'
   = nested_form_for [:admin, @project||new_project], multipart: true do |f|
     /= image_tag f.object.avatar.url(:thumbnail)
     /
@@ -16,9 +17,12 @@
       = f.text_area :info, class: 'form-control'
     .row
       = f.label_tag 'Components'
+      /button.btn.btn-default data-target="#componentModal" data-toggle="modal" type="button"
+      = link_to 'New component', '#', class: 'btn btn-default', data: {target:'#componentModal', toggle: 'modal'}
       = f.fields_for :component_projects do |cp|
         = cp.collection_select :component_id, Component.all, :id, :name
         = cp.link_to_remove 'Remove this component'
       = f.link_to_add "Add a component", :component_projects
+
     .row
       = f.button type: :submit, class: 'btn btn-default'
