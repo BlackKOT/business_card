@@ -1,11 +1,10 @@
-= form_for [:admin, @component||=Component.new], remote: @component.new_record? do |f|
-  .row
+= form_for [:admin, @component ||= Component.new], remote: @component.new_record? do |f|
+  .form-group
     = f.label :name
     = f.text_field :name
-  .row
+  .form-group
     = f.label 'Type'
     = f.select :type_id, Component::COMPONENT_TYPES.invert
-  .row
-    button.btn.btn-default data-dismiss='modal' type='button' Close
-    = f.button  'Save changes', class: 'btn btn-primary'
 
+  button.btn.btn-default data-dismiss='modal' type='button' Close
+  = f.button 'Save changes', class: 'btn btn-primary'
