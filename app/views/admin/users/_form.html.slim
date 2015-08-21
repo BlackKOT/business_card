@@ -1,38 +1,37 @@
-.container
-  = form_for [:admin, @user||User.new], multipart: true do |f|
+= form_for [:admin, @user||User.new], multipart: true do |f|
+  .form-group
     = image_tag f.object.avatar.url(:thumbnail)
 
-    .row
-      = f.hidden_field :avatar_cache
-      = f.file_field :avatar
-    .row
-      = f.label :email
-      = f.email_field :email, class: 'form-control'
-    .row
-      = f.label :first_name
-      = f.text_field :first_name, class: 'form-control'
-    .row
-      = f.label :last_name
-      = f.text_field :last_name, class: 'form-control'
-    .row
-      = f.text_area :info, class: 'form-control tinymce'
-      = tinymce_assets
-      = tinymce
-    .row
-      .col-6
-        = f.label :birthday
-      .col-6
-        = f.date_select :birthday, class: 'form-control'
-    .row
+  .form-group
+    = f.hidden_field :avatar_cache
+    = f.file_field :avatar
+  .form-group
+    = f.label :email
+    = f.email_field :email, class: 'form-control'
+  .form-group
+    = f.label :first_name
+    = f.text_field :first_name, class: 'form-control'
+  .form-group
+    = f.label :last_name
+    = f.text_field :last_name, class: 'form-control'
+  .form-group
+    = f.text_area :info, class: 'form-control tinymce'
+    = tinymce_assets
+    = tinymce
+  .form-group.row
+    .col-md-6
+      = f.label :birthday
+      = f.date_select :birthday, class: 'form-control'
+    .col-md-6
       = f.label 'Male ?'
       = f.check_box :gender
-    - if f.object.new_record?
-      .row
-        .col-4
-          = f.label :password
-        .col-4
-          = f.password_field :password, class: 'form-control'
-        .col-4
-          = f.password_field :password_confirmation, class: 'form-control'
-    .row
-      = f.button type: :submit, class: 'btn btn-default'
+
+  - if f.object.new_record?
+    = f.label :password
+    .row.form-group
+      .col-md-6
+        = f.password_field :password, class: 'form-control'
+      .col-md-6
+        = f.password_field :password_confirmation, class: 'form-control'
+
+  = f.button type: :submit, class: 'btn btn-default'
