@@ -1,7 +1,4 @@
-.row class="ci_#{component.id}"
-  .col-md-6
-    = component.name
-  .col-md-3
-    = component.type_name
-  .col-md-3
-    = link_to 'Delete', [:admin, component], method: :delete, remote: true, class: 'btn'
+tr class="ci_#{component.id}"
+  td= component.name
+  td= component.type_name
+  td= link_to 'Delete', [:admin, component], method: :delete, remote: true, class: 'btn'
