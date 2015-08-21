@@ -1,15 +1,11 @@
-/! Project One
 .row
   .col-md-7
     /TODO Gallery must be here
     a href="#"
       img.img-responsive alt="" src="http://placehold.it/700x300" /
   .col-md-5
-    h3 Project One
-    h4 Subheading
-    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.
-    a.btn.btn-primary href="#"
-      | View Project
-      span.glyphicon.glyphicon-chevron-right
-/! /.row
+    h3= project.name
+    h4= project.company
+    p=  project.info
+    = link_to 'View Project', project_path(project), class: 'btn.btn-primary'
 hr

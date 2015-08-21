@@ -22,6 +22,7 @@ gem 'nested_form'
 
 #assets
 gem 'twitter-bootstrap-rails'
+gem 'Bootstrap-Image-Gallery-rails'
 gem 'angularjs-rails'
 gem 'tinymce-rails'
 gem 'rails_12factor'

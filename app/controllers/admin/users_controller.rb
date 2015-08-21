@@ -48,7 +48,7 @@ class Admin::UsersController < Admin::AdminController
     params.require(:user).permit(
       :email, :first_name, :last_name, :birthday,:gender, :avatar,
       :info, :password, :password_confirmation, :avatar, :avatar_cache,
-      project_attributes: [:name]
+      project_users_attributes: [:id, :project_id, :user_id, :_destroy]
     )
   end
 end

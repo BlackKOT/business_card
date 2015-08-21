@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   has_many :projects, through: :project_users
   has_many :project_users, dependent: :destroy
 
+  accepts_nested_attributes_for :project_users, allow_destroy: true
+
   def full_name
     "#{first_name} #{last_name}"
   end

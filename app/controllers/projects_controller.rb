@@ -1,12 +1,12 @@
 class ProjectsController < ApplicationController
-  before_filter :find_user
+  before_filter :find_user, only: :index
 
   def index
     @projects = @user.projects
   end
 
   def show
-    @projects = @user.projects.find_by(id: params[:id].to_i)
+    @project = Project.find_by(id: params[:id].to_i)
   end
 
   private

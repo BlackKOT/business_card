@@ -10,8 +10,9 @@ Rails.application.routes.draw do
 
   scope '/(:locale)', locale: /en|ru/ do
     resources :users, only: [:index, :show] do
-      resources :projects, only: [:index, :show]
+      resources :projects, only: [:index]
     end
+    resources :projects, only: [:show]
 
     root 'users#index'
   end

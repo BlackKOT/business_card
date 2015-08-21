@@ -1,4 +1,4 @@
-= form_for [:admin, @user||User.new], multipart: true do |f|
+= nested_form_for [:admin, @user||User.new], multipart: true do |f|
   .form-group
     = image_tag f.object.avatar.url(:thumbnail)
 
@@ -28,10 +28,16 @@
 
   - if f.object.new_record?
     = f.label :password
-    .row.form-group
+    .form-group.row
       .col-md-6
         = f.password_field :password, class: 'form-control'
       .col-md-6
         = f.password_field :password_confirmation, class: 'form-control'
 
+  .form-group.row
+    = f.label_tag 'Projects'
+    = f.fields_for :project_users do |pu|
+      = pu.collection_select :project_id, Project.all, :id, :name, {}, class: 'projectsList'
+      = pu.link_to_remove 'Remove this project'
+    = f.link_to_add "Add a project", :project_users
   = f.button type: :submit, class: 'btn btn-default'
