@@ -9,4 +9,12 @@ protected
   def default_url_options
     { locale: I18n.locale }
   end
+
+  def pagination(objs, page, pre_count = 2)
+    if objs.is_a? Array
+      Kaminari.paginate_array(objs).page(page.to_i).per(pre_count)
+    else
+      objs.page(page.to_i).per(pre_count)
+    end
+  end
 end

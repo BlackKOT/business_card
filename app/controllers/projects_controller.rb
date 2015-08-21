@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_filter :find_user, only: :index
 
   def index
-    @projects = @user.projects
+    @projects = pagination(@user.projects, params[:page])
   end
 
   def show

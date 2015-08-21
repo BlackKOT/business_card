@@ -16,6 +16,9 @@
 //= require angular
 //= require angular-animate
 //= require angular-resource
+
+//= require jquery-ias.min
+
 //= require_tree .
 
 //= require blueimp-gallery
@@ -25,3 +28,12 @@
 //= require blueimp-gallery-youtube
 //= require jquery.blueimp-gallery
 //= require bootstrap-image-gallery
+
+jQuery.ias({
+    container : '.projects_block',
+    item: '.project',
+    pagination: '.pagination',
+    next: 'span.next a',
+    loader: '<img src="/assets/loading.gif" class=/"text-center" />',
+    onRenderComplete: function() {}
+});
