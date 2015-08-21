@@ -50,7 +50,7 @@ class Admin::ProjectsController < Admin::AdminController
       :company,
       :info,
       component_projects_attributes: [:id, :project_id, :component_id, :_destroy],
-      images_attributes: [:path, :_destroy]
+      images_attributes: [:id, :path, :_destroy]
     )
   end
 end

@@ -1,11 +1,9 @@
 .row
   .col-md-7
-    /TODO Gallery must be here
-    a href="#"
-      img.img-responsive alt="" src="http://placehold.it/700x300" /
+    = render partial: 'shared/gallery', locals: {images: project.images}
   .col-md-5
     h3= project.name
     h4= project.company
-    p=  project.info
+    p== project.info
     = link_to 'View Project', project_path(project), class: 'btn.btn-primary'
 hr
