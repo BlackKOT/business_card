@@ -37,3 +37,12 @@ jQuery.ias({
     loader: '<img src="/assets/loading.gif" class=/"text-center" />',
     onRenderComplete: function() {}
 });
+
+jQuery.ias({
+    container : '.comments_block',
+    item: '.comment_item',
+    pagination: '.pagination',
+    next: 'span.next a',
+    loader: '<img src="/assets/loading.gif" class=/"text-center" />',
+    onRenderComplete: function() {}
+});

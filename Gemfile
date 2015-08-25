@@ -15,6 +15,7 @@ gem 'slim-rails'
 gem 'kaminari'
 #gem 'bootstrap-kaminari-views'
 
+#Captcha for rails 4
 gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
 
 #nested
@@ -26,7 +27,7 @@ gem 'Bootstrap-Image-Gallery-rails'
 gem 'angularjs-rails'
 gem 'tinymce-rails'
 gem 'rails_12factor'
-#Captcha for rails 4
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
