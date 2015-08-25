@@ -1,0 +1,8 @@
+- if form_errors.errors.any?
+  #error_explanation
+    h2= "Some errors prohibited this #{form_errors.class.name} object from being action finished successfully:"
+    ul
+      - form_errors.errors.messages.each_pair do |k, v|
+        - name = k.to_s.split('.').last
+        - v.each do |err|
+          li= "#{name}: #{err}"
