@@ -1,0 +1,5 @@
+- if @comment.persisted?
+  | $('#commentModal').modal('hide');
+  | $('.comments_block').prepend("#{j render(partial: 'comments/comment', layout: false, locals: { :comment => @comment }) }");
+- else
+  | $('.modal-body').html("#{j render(partial: 'comments/form', layout: false, locals: { :@comment => @comment }) }");

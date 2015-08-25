@@ -1,0 +1,15 @@
+= form_for @comment ||= Comment.new, remote: true do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name
+
+  .form-group
+    = f.label :email
+    = f.email_field :email
+
+  .form-group
+    = f.label :body
+    = f.text_area :body
+
+  button.btn.btn-default data-dismiss='modal' type='button' Close
+  = f.button 'Save changes', class: 'btn btn-primary'

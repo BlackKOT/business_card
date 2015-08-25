@@ -1,4 +1,5 @@
-= render 'admin/components/modal'
+= render layout: 'shared/modal', locals: {title: 'Create component dialog', modal_id: 'componentModal'} do
+  = render 'admin/components/form'
 
 = nested_form_for [:admin, @project || Project.new], multipart: true do |f|
   /= image_tag f.object.avatar.url(:thumbnail)

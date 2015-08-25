@@ -21,6 +21,8 @@ html
           a.navbar-brand href="#" = t('brand_title')
 
           == "#{lang_option('en')} / #{lang_option('ru')}"
+        .text-right
+          = link_to t('guestbook'), comments_path
         /! Collect the nav links, forms, and other content for toggling
         /#bs-example-navbar-collapse-1.collapse.navbar-collapse
         /  ul.nav.navbar-nav

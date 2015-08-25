@@ -1,0 +1,12 @@
+.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id=modal_id
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true" &times;
+        h4#myModalLabel.modal-title= title
+      .modal-body
+        = yield
+
+
+        

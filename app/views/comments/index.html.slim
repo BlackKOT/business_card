@@ -1,0 +1,10 @@
+= render layout: 'shared/modal', locals: {title: 'Create comment dialog', modal_id: 'commentModal'} do
+  = render 'comments/form'
+hr
+h1
+  .text-center Guestbook
+= link_to 'Add new comment', '#', class: 'btn btn-info', data: {target:'#commentModal', toggle: 'modal'}
+.container
+  .comments_block
+    = render @comments
+
