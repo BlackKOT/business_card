@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require jcarousel.min
 //= require angular
 //= require angular-animate
 //= require angular-resource
@@ -30,17 +31,8 @@
 //= require bootstrap-image-gallery
 
 jQuery.ias({
-    container : '.projects_block',
-    item: '.project',
-    pagination: '.pagination',
-    next: 'span.next a',
-    loader: '<img src="/assets/loading.gif" class=/"text-center" />',
-    onRenderComplete: function() {}
-});
-
-jQuery.ias({
-    container : '.comments_block',
-    item: '.comment_item',
+    container : '.comments_block, .projects_block',
+    item: '.comment_item, .project',
     pagination: '.pagination',
     next: 'span.next a',
     loader: '<img src="/assets/loading.gif" class=/"text-center" />',
