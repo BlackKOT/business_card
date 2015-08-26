@@ -40,13 +40,26 @@ footer {
   border-top: 5px solid #D62824;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary{
+.btn-primary {
+ background-color: #D62824;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary{
   background-color: #D62824;
 }
 
-.red-link {
-    color: red;
+.flag{
+  width: 21px;
+  height: 14px;
+  background-image: url('flags.png');
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  float:left;
 }
-.red-link:hover {
-    color: white;
+.en_flag{
+  background-position: 1px -112px;
 }
+.ru_flag{
+  background-position: 1px -112px;
+}
+
