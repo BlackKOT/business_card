@@ -18,6 +18,7 @@
  *= require bootstrap-image-gallery
  *= require blueimp-gallery-indicator
  *= require blueimp-gallery-video
+ *= require images
 
  */
 
@@ -28,6 +29,7 @@
 
 body {
   padding-top: 55px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+  margin: 0 7%;
 }
 
 footer {
@@ -36,4 +38,15 @@ footer {
 
 .navbar{
   border-top: 5px solid #D62824;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary{
+  background-color: #D62824;
+}
+
+.red-link {
+    color: red;
+}
+.red-link:hover {
+    color: white;
 }

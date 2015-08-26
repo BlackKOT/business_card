@@ -22,7 +22,7 @@ html
 
           == "#{lang_option('en')} / #{lang_option('ru')}"
         .text-right
-          = link_to t('guestbook'), comments_path
+          = link_to t('guestbook'), comments_path, class: 'red-link'
         /! Collect the nav links, forms, and other content for toggling
         /#bs-example-navbar-collapse-1.collapse.navbar-collapse
         /  ul.nav.navbar-nav
@@ -41,6 +41,25 @@ html
 
     /! Footer
     footer
+      .col-sm-12
+        h2= t('users.contact_us.title')
+        /address
+        /  strong Start Bootstrap
+        /  | 3481
+        /  br
+        /  | Melrose Place
+        /  Beverly
+        /  br
+        /  | Hills, CA 90210
+        /  br
+        address
+          /abbr title="Phone"
+          /| P: (123) 456-7890
+          /br
+          abbr title=t('users.contact_us.email')
+            = t('users.contact_us.email')
+            | :
+            a href="mailto:#"  name@example.com
       .row
         .col-lg-12
-          p.text-center == "#{t('copyright')} &copy; 2012"
+          p.text-center == "#{t('copyright')} &copy; 2015"
