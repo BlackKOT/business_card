@@ -1,3 +1,9 @@
-div class="jcarousel"
-  ul
-    = yield
+div.jcarousel-wrapper
+  div.jcarousel
+    ul.clearfix
+      = yield
+
+  a.jcarousel-control-prev href="#" &lsaquo;
+  a.jcarousel-control-next href="#" &rsaquo;
+
+  p.jcarousel-pagination
