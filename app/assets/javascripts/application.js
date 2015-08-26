@@ -13,14 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require jcarousel.min
+//= require_directory ./shared
 //= require angular
 //= require angular-animate
 //= require angular-resource
 
 //= require jquery-ias.min
 
-//= require_tree .
+//= require_directory ./application
 
 //= require blueimp-gallery
 //= require blueimp-gallery-fullscreen

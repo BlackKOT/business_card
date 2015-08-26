@@ -2,9 +2,20 @@
   position: relative;
   overflow: hidden;
   width: 100%;
+
+  ul {
+    padding: 0;
+  }
 }
 
 .jcarousel li {
   float: left;
-  width: 100px;
+  height: 400px;
+  width: auto;
+  list-style-type: none;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
