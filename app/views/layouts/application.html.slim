@@ -19,10 +19,14 @@ html
             span.icon-bar
             span.icon-bar
           a.navbar-brand href="/" = t('brand_title')
+          ul class="nav navbar-nav"
+            li.pull-left== lang_option('en')
+            li.pull-left== lang_option('ru')
 
-          == "#{lang_option('en')} #{lang_option('ru')}"
-          .text-right
-            = link_to t('guestbook'), comments_path, class: 'navbar-brand pull-right'
+        .collapse.navbar-collapse
+          ul class="nav navbar-nav navbar-right"
+            li= link_to t('guestbook'), comments_path
+
         /! Collect the nav links, forms, and other content for toggling
         /#bs-example-navbar-collapse-1.collapse.navbar-collapse
         /  ul.nav.navbar-nav
