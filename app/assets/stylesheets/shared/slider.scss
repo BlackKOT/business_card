@@ -2,13 +2,16 @@
  *= require wallop
  */
 
+$main-height: 400px;
+$button-offset: -3%;
+
 .Wallop {
-  max-height: 400px;
+  max-height: $main-height;
   width: auto;
 }
 
 .Wallop-item {
-  max-height: 400px;
+  max-height: $main-height;
   width: auto;
   text-align: center;
 
@@ -40,41 +43,9 @@
 }
 
 .Wallop-buttonPrevious {
-  left: -50px;
+  left: $button-offset;
 }
 
 .Wallop-buttonNext {
-  right: -50px;
+  right: $button-offset;
 }
-
-///** Carousel Pagination **/
-//
-//.jcarousel-pagination {
-//  position: absolute;
-//  bottom: 0;
-//  left: 15px;
-//}
-//
-//.jcarousel-pagination a {
-//  text-decoration: none;
-//  display: inline-block;
-//
-//  font-size: 11px;
-//  line-height: 14px;
-//  min-width: 14px;
-//
-//  background: #fff;
-//  color: #4E443C;
-//  border-radius: 14px;
-//  padding: 3px;
-//  text-align: center;
-//  margin-right: 2px;
-//  opacity: .75;
-//}
-//
-//.jcarousel-pagination a.active {
-//  background: #4E443C;
-//  color: #fff;
-//  opacity: 1;
-//  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
-//}
