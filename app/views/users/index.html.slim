@@ -1,6 +1,9 @@
 = render layout: 'shared/slider' do
-  li.box = image_tag 'main_image.jpg'
-  li.box = image_tag 'lol_o_807162.jpg'
+  = render layout: 'shared/slider_item' do
+    = image_tag 'main_image.jpg'
+
+  = render layout: 'shared/slider_item' do
+    = image_tag 'lol_o_807162.jpg'
 
 
 header.business-header
