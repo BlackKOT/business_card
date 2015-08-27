@@ -3,12 +3,12 @@
  */
 
 .Wallop {
-  height: 400px;
+  max-height: 400px;
   width: auto;
 }
 
 .Wallop-item {
-  height: 400px;
+  max-height: 400px;
   width: auto;
   text-align: center;
 
@@ -22,7 +22,7 @@
 .Wallop-buttonPrevious,
 .Wallop-buttonNext {
   position: absolute;
-  top: 200px;
+  top: 50%;
   width: 30px;
   height: 30px;
   text-align: center;
