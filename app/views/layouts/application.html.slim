@@ -13,7 +13,7 @@ html
       .container
         /! Brand and toggle get grouped for better mobile display
         .navbar-header
-          button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
+          button.navbar-toggle data-target="#collapsed-menu" data-toggle="collapse" type="button"
             span.sr-only Toggle navigation
             span.icon-bar
             span.icon-bar
@@ -23,7 +23,7 @@ html
             li.pull-left== lang_option('en')
             li.pull-left== lang_option('ru')
 
-        .collapse.navbar-collapse
+        #collapsed-menu.collapse.navbar-collapse
           ul class="nav navbar-nav navbar-right"
             li= link_to t('guestbook'), comments_path
 
