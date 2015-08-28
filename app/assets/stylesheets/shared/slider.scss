@@ -5,8 +5,8 @@
 $main-height: 400px;
 $button-offset: -3%;
 
-.Wallop {
-  max-height: $main-height;
+.Wallop, .Wallop-list {
+  height: $main-height;
   width: auto;
 }
 
@@ -14,6 +14,10 @@ $button-offset: -3%;
   max-height: $main-height;
   width: auto;
   text-align: center;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 
   img {
     max-width: 100%;
