@@ -15,3 +15,4 @@ $ ->
     mobile_href = sms_url_update($sms_field.prop('href'))
     $sms_field.prop('href', mobile_href)
     window.location = mobile_href
+    return false
