@@ -8,6 +8,6 @@ sms_delimiter = ->
 $ ->
   $sms_field = $('.mobile-sms')
   if $sms_field.length > 0
-    mobile_href = $sms_field.attr('href').replace('{{1}}', sms_delimiter())
+    mobile_href = $sms_field.attr('href').replace('?', sms_delimiter())
     window.location = mobile_href
 
