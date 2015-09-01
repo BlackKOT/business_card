@@ -9,6 +9,6 @@ $ ->
   $sms_field = $('.mobile-sms')
   if $sms_field.length > 0
     mobile_href = $sms_field.prop('href').replace('?', sms_delimiter())
-    window.location.href = mobile_href
+    window.open(mobile_href, '_system')
 
 
