@@ -29,3 +29,14 @@ header.business-header
       = render users
   hr
 
+
+= link_to "send_sms", "sms: 907654736{{1}}body=this is a body text", class: 'mobile-sms'
+/a href="sms:/ phone number here /?body=/ body text here /">Link</a>
+/
+/If you want it to work on iOS, you need this:
+/
+/<a href="sms:/ phone number here /;body=/ body text here /">Link</a>
+/
+/Apparently iOS8 had to go and change things on us, so thanks to some of the other commenters/responders, there's a new style for iOS:
+/
+/<a href="sms:/ phone number here /&body=/ body text here /">Link</a>
