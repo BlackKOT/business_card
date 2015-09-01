@@ -1,9 +1,3 @@
-redirect = (uri) ->
-  if navigator.userAgent.match(/Android/i)
-    document.location = uri
-  else
-    window.location.replace uri
-
 sms_delimiter = ->
   ua = navigator.userAgent.toLowerCase()
   if ua.indexOf('iphone') > -1 or ua.indexOf('ipad') > -1
@@ -15,6 +9,6 @@ $ ->
   $sms_field = $('.mobile-sms')
   if $sms_field.length > 0
     mobile_href = $sms_field.prop('href').replace('?', sms_delimiter())
-    redirect(mobile_href)
+    window.location.href = mobile_href
 
 
