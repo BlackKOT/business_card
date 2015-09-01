@@ -1,4 +1,4 @@
-get_sms_format = ->
+sms_delimiter = ->
   ua = navigator.userAgent.toLowerCase()
   if ua.indexOf('iphone') > -1 or ua.indexOf('ipad') > -1
     _iOSVersion = Number((navigator.userAgent.match(/\b[0-9]+_[0-9]+(?:_[0-9]+)?\b/) or [ '' ])[0].split('_')[0])
@@ -6,8 +6,8 @@ get_sms_format = ->
   else '?'
 
 $ ->
-  delim = get_sms_format
-  $.each($('.mobile-sms'),->
-    mobile_href = $(@).attr('href').replace('{{1}}', delim)
-    $(@).attr('href', mobile_href)
-  )
+  $sms_field = $('.mobile-sms')
+  if $sms_field.length > 0
+    mobile_href = $sms_field.attr('href').replace('{{1}}', sms_delimiter())
+    window.location = mobile_href
+
