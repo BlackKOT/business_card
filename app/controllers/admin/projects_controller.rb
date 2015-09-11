@@ -3,7 +3,10 @@ class Admin::ProjectsController < Admin::AdminController
   before_filter :find_project, except: [:index, :new, :create]
 
   def index
-    @projects = Project.all
+    respond_to do |mime|
+      mime.html
+      mime.json { render json: { projects: Project.all.as_json } }
+    end
   end
 
   def show; end
