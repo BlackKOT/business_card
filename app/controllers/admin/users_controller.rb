@@ -3,7 +3,10 @@ class Admin::UsersController < Admin::AdminController
   before_filter :find_user, except: [:index, :new, :create]
 
   def index
-    @users = User.all
+    respond_to do |mime|
+      mime.html
+      mime.json { render json: { users: User.all.as_json } }
+    end
   end
 
   def show; end
