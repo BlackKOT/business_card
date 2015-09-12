@@ -1,3 +1,3 @@
 div.text-center data-ng-repeat="user in users"
-  img.center-block src="{{ user.avatar_url }}" class="img-circle img-responsive img-center fix-size"
+  img.center-block src='' data-ng-src="{{ user.avatar_url }}" class="img-circle img-responsive img-center fix-size"
   = link_to '{{ user.full_name }}', ng_link(edit_admin_user_path(id: '{{ user.id }}'))

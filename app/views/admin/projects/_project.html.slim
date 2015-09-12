@@ -1,5 +1,5 @@
 .row data-ng-repeat="project in projects"
   .col-md-4
-    img src="{{ project.image_url }}"
+    img data-ng-src="{{ project.image_url }}" src=''
   .col-md-8
     = link_to '{{ project.name }}', ng_link(edit_admin_project_path(id: '{{ project.id }}')), class: 'v-align'
