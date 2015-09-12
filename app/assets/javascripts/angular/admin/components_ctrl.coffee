@@ -1,7 +1,33 @@
-angular.module('admin').controller('componentsCtrl', ($scope, $http) ->
+componentsCtrl = angular.module('admin').controller('componentsCtrl', ['$scope', '$http', ($scope, $http) ->
   $http
-  .get('/admin/components.json')
-  .success((response) ->
-    $scope.components = response.components
-  )
-)
+    .get('/admin/components.json')
+    .success((response) ->
+      $scope.components = response.components
+    )
+
+#  $scope.submit = () ->
+#    url = '/admin/components'
+#
+#    if $scope.component.hasOwnProperty('id')
+#      $http.put(url + '/' + $scope.component.id, {componnet: $scope.component})
+#    else
+#      $http.post(url, {componnet: $scope.component})
+])
+
+componentsCtrl.directive('componentForm', ['$http', ($http) ->
+  return {
+    restrict: 'A',
+    scope: true,
+    controller: ($scope, $attrs) ->
+      if ($attrs.componentForm == '0')
+        console.log('new component');
+      else
+        $scope.post = {
+          name: $('#component_name').val()
+          type_id: $(':selected', '#component_type_id').val()
+        }
+        console.log('old component');
+
+    link: (scope, element, attrs) ->
+  }
+])

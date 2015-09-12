@@ -1,10 +1,12 @@
-= form_for [:admin, @component ||= Component.new], remote: @component.new_record? do |f|
+= form_for [:admin, @component ||= Component.new], html: {'server-form' => true, name: 'component', 'data-component-form' => @component.id || 0} do |f|
   .form-group
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, 'ng-model' => 'component.name', required: true
+    span ng-show="component.name.$error.required">Name is required.
+    span ng-show="component.name.$error.name">Invalid name.
   .form-group
     = f.label 'Type'
-    = f.select :type_id, Component::COMPONENT_TYPES.invert
+    = f.select :type_id, Component::COMPONENT_TYPES.invert, 'ng-model' => 'component.type_id', required: true
 
   button.btn.btn-default data-dismiss='modal' type='button' Close
-  = f.button 'Save changes', class: 'btn btn-primary'
+  = f.button 'Save changes', class: 'btn btn-primary', 'ng-disabled' => 'component.name.$dirty && component.name.$invalid || component.type_id.$dirty && component.type_id.$invalid'
