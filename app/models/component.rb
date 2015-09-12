@@ -18,8 +18,11 @@ class Component < ActiveRecord::Base
     11 => 'markup'
   }
 
-
   def type_name
     COMPONENT_TYPES[type_id]
+  end
+
+  def as_json(options = {})
+    { id: id, name: name, type_name: type_name }
   end
 end

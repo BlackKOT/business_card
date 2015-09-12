@@ -1,4 +1,6 @@
-tr class="ci_#{component.id}"
-  td= component.name
-  td= component.type_name
-  td= link_to 'Delete', [:admin, component], method: :delete, remote: true, class: 'btn'
+tr class="ci_{{ component.id }}" ng-repeat="component in components"
+  td
+    | {{ component.name }}
+  td
+    | {{ component.type_name }}
+  td= link_to 'Delete', ng_link(admin_component_path(id: '{{ component.id }}')), method: :delete, remote: true, class: 'btn'
