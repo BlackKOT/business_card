@@ -22,10 +22,6 @@ componentsCtrl.directive('componentForm', ['$http', ($http) ->
       if ($attrs.componentForm == '0')
         console.log('new component');
       else
-        $scope.post = {
-          name: $('#component_name').val()
-          type_id: $(':selected', '#component_type_id').val()
-        }
         console.log('old component');
 
     link: (scope, element, attrs) ->
