@@ -2,11 +2,10 @@ angular.module('application').service '$FormService', ($http) ->
 
   class Form
     submit: ($form, fields) ->
-      console.log(fields)
       $http
         url: $form.attr('action') + '.json'
         method: $form.attr('method')
-        data: { comment: fields }
+        data: fields
 
 
     displayErrors: ($form, data) =>
