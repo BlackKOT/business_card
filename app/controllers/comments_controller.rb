@@ -21,5 +21,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:name, :email, :body, :captcha, :captcha_key)
   end
-
 end

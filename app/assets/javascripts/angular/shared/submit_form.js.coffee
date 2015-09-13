@@ -1,13 +1,12 @@
 angular.module('application').service '$FormService', ($http) ->
 
   class Form
-
-    submit: ($form) ->
-      console.log encodeURIComponent($form.serialize())
+    submit: ($form, fields) ->
+      console.log(fields)
       $http
-        url: $form.attr('action')
+        url: $form.attr('action') + '.json'
         method: $form.attr('method')
-        data: encodeURIComponent($form.serialize())
+        data: { comment: fields }
 
 
     displayErrors: ($form, data) =>
