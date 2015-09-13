@@ -1,5 +1,4 @@
-application = angular.module('application')
-application.controller('commentsCtrl', ['$scope', '$http', ($scope, $http) ->
+appModule.controller('commentsCtrl', ['$scope', '$http', ($scope, $http) ->
   $http
   .get('/comments.json')
   .success((response) ->
@@ -7,11 +6,11 @@ application.controller('commentsCtrl', ['$scope', '$http', ($scope, $http) ->
   )
 ])
 
-application.directive 'commentForm', ['$FormService', ($FormService) ->
+appModule.directive 'commentForm', ['$FormService', ($FormService) ->
   {
   restrict: 'A'
   scope: true
-  templateUrl: 'comments/comment'
+#  templateUrl: 'comments/comment'
   controller: ($scope, $attrs) ->
     if $attrs.commentForm == '0'
       console.log 'new post'

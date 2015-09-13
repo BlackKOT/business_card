@@ -2,9 +2,9 @@
 //= require_directory ./shared
 //= require_directory ./application
 
-application = angular.module('application', [])
+appModule = angular.module('application', []);
 
-application.config([
+appModule.config([
     '$httpProvider', function($httpProvider) {
         $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
         //$httpProvider.defaults.useXDomain = true;
@@ -13,5 +13,5 @@ application.config([
         //$httpProvider.defaults.headers.common["Content-Type"] = "application/json";
     }]);
 
-application.run(function() { console.log('angular app running for application') });
+appModule.run(function() { console.log('angular app running for application') });
 

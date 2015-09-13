@@ -1,4 +1,4 @@
-angular.module('admin').controller('usersCtrl', ['$scope', '$http', ($scope, $http) ->
+appModule.controller('usersCtrl', ['$scope', '$http', ($scope, $http) ->
   $http
   .get('/admin/users.json')
   .success((response) ->

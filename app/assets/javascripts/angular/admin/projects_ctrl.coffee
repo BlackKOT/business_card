@@ -1,4 +1,4 @@
-angular.module('admin').controller('projectsCtrl', ['$scope', '$http', ($scope, $http) ->
+appModule.controller('projectsCtrl', ['$scope', '$http', ($scope, $http) ->
   $http
   .get('/admin/projects.json')
   .success((response) ->

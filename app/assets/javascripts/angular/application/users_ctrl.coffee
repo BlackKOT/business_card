@@ -1,4 +1,4 @@
-angular.module('application').controller('usersCtrl', ['$scope', '$http', ($scope, $http) ->
+appModule.controller('usersCtrl', ['$scope', '$http', ($scope, $http) ->
   $http
   .get('/users.json')
   .success((response) ->

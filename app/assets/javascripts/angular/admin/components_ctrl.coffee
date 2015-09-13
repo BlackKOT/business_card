@@ -1,4 +1,4 @@
-componentsCtrl = angular.module('admin').controller('componentsCtrl', ['$scope', '$http', ($scope, $http) ->
+componentsCtrl = appModule.controller('componentsCtrl', ['$scope', '$http', ($scope, $http) ->
   $http
     .get('/admin/components.json')
     .success((response) ->
