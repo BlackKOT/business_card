@@ -6,7 +6,6 @@ h1
 = link_to 'Add new comment', '#', class: 'btn btn-primary', data: {target:'#commentModal', toggle: 'modal'}
 .container
   .comments_block
-    div data-comments-list=''
-      /= render 'comments/comment'
+    div comments-list='' repeat-statement='comment in comments'
 
   /= paginate @comments

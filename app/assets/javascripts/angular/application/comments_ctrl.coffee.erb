@@ -1,15 +1,21 @@
+appModule.controller('commentsCtrl', ['$scope', '$http', ($scope, $http) ->
+    $http
+    .get('/comments.json')
+    .success((response) ->
+        $scope.comments = response.comments
+    )
+])
+
 appModule.directive 'commentsList', ->
   {
     restrict: 'A'
-    scope: true
+#    replace: true
+    controller: 'commentsCtrl'
     templateUrl: "<%= asset_path("angular/application/templates/comment.html.slim") %>"
-    controller: ['$scope', '$http', ($scope, $http) ->
-      $http
-      .get('/comments.json')
-      .success((response) ->
-        $scope.comments = response.comments
-      )
-    ]
+    compile: (tElement, tAttrs, transclude) ->
+        rpt = document.createAttribute('ng-repeat')
+        rpt.nodeValue = tAttrs.repeatStatement
+        tElement[0].children[0].attributes.setNamedItem(rpt)
   }
 
 appModule.directive 'commentForm', ['$FormService', ($FormService) ->
