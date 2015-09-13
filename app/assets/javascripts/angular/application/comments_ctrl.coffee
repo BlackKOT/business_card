@@ -21,7 +21,7 @@ application.directive 'commentForm', ['$FormService', ($FormService) ->
     scope.submit = ($event) ->
       $event.preventDefault()
       $FormService.clearErrors(element)
-      result = $FormService.submit(element, {comment : scope.comment})
+      result = $FormService.submit(element)
       result.success =>
         alert('Your feedback has been submitted. Thank You.')
       result.error (data) =>
