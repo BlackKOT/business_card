@@ -2,7 +2,11 @@ class CommentsController < ApplicationController
   include SimpleCaptcha::ControllerHelpers
 
   def index
-    @comments = pagination(Comment.order('created_at DESC'), params[:page], 15)
+    # @comments = pagination(Comment.order('created_at DESC'), params[:page], 15)
+    respond_to do |mime|
+      mime.html
+      mime.json { render json: { comments: Comment.all.as_json } }
+    end
   end
 
   def create

@@ -1,5 +1,7 @@
-.col-sm-6
-  = link_to user_projects_path(user) do
-    = image_tag(user.avatar.url, class: 'img-circle img-responsive img-center fix-size')
-    h2.text-center= user.full_name
-  p== user.info
+.col-sm-6 data-ng-repeat='user in users'
+  = link_to ng_link(user_projects_path(user_id: '{{ user.id }}')) do
+    img src='' data-ng-src="{{ user.avatar_url }}" class='img-circle img-responsive img-center fix-size'
+    h2.text-center
+      | {{user.full_name}}
+  p
+   | {{user.info}}

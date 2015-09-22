@@ -7,7 +7,7 @@ html
     = csrf_meta_tags
 
     meta content="width=device-width, initial-scale=1" name="viewport"
-  body class=params['controller']
+  body class=params['controller'] ng-app="application"
     /! Navigation
     nav.navbar.navbar-inverse.navbar-fixed-top role="navigation"
       .container
@@ -67,3 +67,5 @@ html
       .row
         .col-lg-12
           p.text-center == "#{t('copyright')} &copy; 2015"
+
+    = javascript_include_tag 'angular/application', cache: true

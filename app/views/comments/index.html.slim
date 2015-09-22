@@ -5,7 +5,7 @@ h1
   .text-center Guestbook
 = link_to 'Add new comment', '#', class: 'btn btn-primary', data: {target:'#commentModal', toggle: 'modal'}
 .container
-  .comments_block
-    = render @comments
+  .comments_block data-ng-controller="commentsCtrl"
+    = render 'comments/comment'
 
-  = paginate @comments
+  /= paginate @comments
