@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       resources :projects, only: [:index]
     end
     resources :projects, only: [:show]
-    resources :comments, only: [:index, :new, :create]
+    resources :comments, only: [:index, :new, :create], default: {format: :json}
 
     root 'users#index'
   end

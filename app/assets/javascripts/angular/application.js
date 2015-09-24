@@ -1,4 +1,5 @@
 //= require_self
+//= require_directory ./shared
 //= require_directory ./application
 
 application = angular.module('application', []);

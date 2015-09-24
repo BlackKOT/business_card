@@ -1,19 +1,19 @@
-= form_for @comment ||= Comment.new, remote: true do |f|
+= form_for @comment ||= Comment.new, html: {'ng-init' => "comment=#{@comment.to_json}", 'data-comment-form' => @comment.id || 0} do |f|
   = render partial: 'shared/form_errors', object: f.object
   .form-group
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, 'ng-model' => 'comment.name', required: true
 
   .form-group
     = f.label :email
-    = f.email_field :email
+    = f.email_field :email, 'ng-model' => 'comment.email', required: true
 
   .form-group
     = f.label :body
-    = f.text_area :body
+    = f.text_area :body, 'ng-model' => 'comment.body', required: true
 
   .form-group
     = show_simple_captcha(object: 'comment')
 
   button.btn.btn-default data-dismiss='modal' type='button' Close
-  = f.button 'Save changes', class: 'btn btn-primary'
+  = f.button 'Save changes', class: 'btn btn-primary', 'ng-click' => 'submit($event)', 'ng-disabled' => 'commentForm.$valid'
