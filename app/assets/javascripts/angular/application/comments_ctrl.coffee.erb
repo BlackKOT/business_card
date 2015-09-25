@@ -1,16 +1,21 @@
-appModule.controller('commentsCtrl', ['$scope', '$http', ($scope, $http) ->
-  $http
-  .get('/comments.json')
-  .success((response) ->
-    $scope.comments = response.comments
-  )
-])
+appModule.directive 'commentsList', ->
+  {
+    restrict: 'A'
+    scope: true
+    templateUrl: "<%= asset_path("angular/application/templates/comment.html.slim") %>"
+    controller: ['$scope', '$http', ($scope, $http) ->
+      $http
+      .get('/comments.json')
+      .success((response) ->
+        $scope.comments = response.comments
+      )
+    ]
+  }
 
 appModule.directive 'commentForm', ['$FormService', ($FormService) ->
   {
   restrict: 'A'
   scope: true
-#  templateUrl: 'comments/comment'
   controller: ($scope, $attrs) ->
     if $attrs.commentForm == '0'
       console.log 'new post'

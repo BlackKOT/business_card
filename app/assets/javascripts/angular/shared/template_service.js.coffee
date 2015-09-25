@@ -1,20 +1,20 @@
-appModule.service '$TemplateService', ($http, $templateCache) ->
-  class Template
-    constructor: ->
-      @template = ''
-
-    load: (name) ->
-      $http
-        .get(name, cache: $templateCache).success(tplContent)->
-          @template = tplContent
-
-    inject_loop_elem: (html_injection) ->
-      angular.element(@template).wrap(html_injection)
-
-    compile: (scope) ->
-      $compile(@template)(scope)
-
-  new Template()
+#appModule.service '$TemplateService', ($http, $templateCache) ->
+#  class Template
+#    constructor: ->
+#      @template = ''
+#
+#    load: (name) ->
+#      $http
+#        .get(name, cache: $templateCache).success(tplContent)->
+#          @template = tplContent
+#
+#    inject_loop_elem: (html_injection) ->
+#      angular.element(@template).wrap(html_injection)
+#
+#    compile: (scope) ->
+#      $compile(@template)(scope)
+#
+#  new Template()
 
 
 
