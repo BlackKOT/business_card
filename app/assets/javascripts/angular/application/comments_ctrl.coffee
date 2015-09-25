@@ -11,6 +11,7 @@ application.directive 'commentForm', ['$FormService', ($FormService) ->
   {
   restrict: 'A'
   scope: true
+  templateUrl: 'comments/comment'
   controller: ($scope, $attrs) ->
     if $attrs.commentForm == '0'
       console.log 'new post'
@@ -23,7 +24,8 @@ application.directive 'commentForm', ['$FormService', ($FormService) ->
       $FormService.clearErrors(element)
       result = $FormService.submit(element)
       result.success =>
-        alert('Your feedback has been submitted. Thank You.')
+        $('#commentModal').modal('hide')
+
       result.error (data) =>
         $FormService.displayErrors(element, data)
   }

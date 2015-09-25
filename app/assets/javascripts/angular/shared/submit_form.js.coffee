@@ -1,3 +1,5 @@
+#= require jquery.form.json.js.coffee
+
 jQuery.fn.MytoJson = (options) ->
   options = jQuery.extend({}, options)
   self = this
@@ -55,8 +57,9 @@ angular.module('application').service '$FormService', ($http) ->
 
     displayErrors: ($form, data) =>
       errors = @formatErrors(data)
-
+      console.log errors
       for input, messages of errors
+        console.log input, messages
         $input = $form.find("input[name=#{input}], input[name*=\"[#{input}]\"], select[name=#{input}], select[name*=\"[#{input}]\"], textarea[name=#{input}], textarea[name*=\"[#{input}]\"]")
 
         if $input.length > 0

@@ -6,6 +6,7 @@ h1
 = link_to 'Add new comment', '#', class: 'btn btn-primary', data: {target:'#commentModal', toggle: 'modal'}
 .container
   .comments_block data-ng-controller="commentsCtrl"
-    = render 'comments/comment'
+    div data-ng-repeat='comment in comments'
+      = render 'comments/comment'
 
   /= paginate @comments

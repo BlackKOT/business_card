@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.save_with_captcha
-    render json:  {errors: @comment.errors.full_messages, comment_id: @comment.id}
+    render json:  {errors: @comment.errors, comment_id: @comment.id}, status: @comment.errors.present? ? 406 :200
   end
 
   private
