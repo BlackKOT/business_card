@@ -35,7 +35,7 @@ appModule.directive 'commentForm', ['$FormService', ($FormService) ->
       result = $FormService.submit(element)
       result.success =>
         $('#commentModal').modal('hide')
-
+        scope.comments.push(scope.comment);
       result.error (data) =>
         $FormService.displayErrors(element, data)
   }
