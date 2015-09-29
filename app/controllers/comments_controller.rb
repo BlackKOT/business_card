@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     # @comments = pagination(Comment.order('created_at DESC'), params[:page], 15)
     respond_to do |mime|
       mime.html
-      mime.json { render json: { comments: Comment.all.as_json } }
+      mime.json { render json: {Count: Comment.count, Items: pagination(Comment, params[:page], 5).as_json}}
     end
   end
 

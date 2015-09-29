@@ -7,6 +7,7 @@ div ng-controller = 'commentsCtrl'
   = link_to 'Add new comment', '#', class: 'btn btn-primary', data: {target:'#commentModal', toggle: 'modal'}
   .container
     .comments_block
-      div comments-list='' repeat-statement='comment in comments'
+      div comments-list='' dir-paginate="comment in comments | itemsPerPage: commentsPerPage" total-items="totalComments" current-page="pagination.current"
+  dir-pagination-controls on-page-change="pageChanged(newPageNumber)" template-url=asset_path('dirPagination.tpl.html')
 
     /= paginate @comments
