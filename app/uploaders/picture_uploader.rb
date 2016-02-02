@@ -23,7 +23,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # process resize_to_fill: [200, 200]
   process convert: 'png'
-  process :tags => ['picture']
+  process tags: ['picture']
 
   version :standard do
     scale(nil, 300)
