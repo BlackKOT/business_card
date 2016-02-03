@@ -1,5 +1,8 @@
 class CommentsController < ApplicationController
   include SimpleCaptcha::ControllerHelpers
+  include SimpleCaptcha::ViewHelper
+  include ActionView::Helpers::FormHelper
+
   respond_to :json, only: :create
 
   def index
@@ -13,7 +16,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.save_with_captcha
-    render json:  {errors: @comment.errors, comment_id: @comment.id}, status: @comment.errors.present? ? 406 :200
+    render json:  {
+      errors: @comment.errors,
+      comment_id: @comment.id,
+      captcha: generate_simple_captcha_image(object: 'comment')
+    }, status: @comment.errors.present? ? 406 :200
   end
 
   private

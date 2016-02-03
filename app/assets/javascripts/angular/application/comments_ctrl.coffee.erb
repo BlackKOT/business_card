@@ -47,9 +47,11 @@ appModule.directive 'commentForm', ['$FormService', ($FormService) ->
       $event.preventDefault()
       $FormService.clearErrors(element)
       result = $FormService.submit(element)
-      result.success =>
+      result.success (response) =>
         $('#commentModal').modal('hide')
-        scope.comments.push(scope.comment);
+        scope.comments.push(scope.comment)
+        console.log response
+        $('.simple_captcha_image').html(response.captcha)
         #TODO create new pagination item on full records per page
       result.error (data) =>
         $FormService.displayErrors(element, data)
