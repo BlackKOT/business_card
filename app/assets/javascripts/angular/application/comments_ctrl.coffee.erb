@@ -22,13 +22,14 @@ appModule.controller('commentsCtrl', ['$scope', '$http', ($scope, $http) ->
 appModule.directive 'commentsList', ->
   {
     restrict: 'A'
+    scope: {comment: '='}
 #    replace: true
     controller: 'commentsCtrl'
     templateUrl: "<%= asset_path("angular/application/templates/comment.html.slim") %>"
-    compile: (tElement, tAttrs, transclude) ->
-        rpt = document.createAttribute('ng-repeat')
-        rpt.nodeValue = tAttrs.repeatStatement
-        tElement[0].children[0].attributes.setNamedItem(rpt)
+#    compile: (tElement, tAttrs, transclude) ->
+#        rpt = document.createAttribute('ng-repeat')
+#        rpt.nodeValue = tAttrs.repeatStatement
+#        tElement[0].children[0].attributes.setNamedItem(rpt)
   }
 
 appModule.directive 'commentForm', ['$FormService', ($FormService) ->
@@ -49,6 +50,7 @@ appModule.directive 'commentForm', ['$FormService', ($FormService) ->
       result.success =>
         $('#commentModal').modal('hide')
         scope.comments.push(scope.comment);
+        #TODO create new pagination item on full records per page
       result.error (data) =>
         $FormService.displayErrors(element, data)
   }
