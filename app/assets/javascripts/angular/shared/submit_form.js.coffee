@@ -1,6 +1,6 @@
 #= require jquery.form.json.js.coffee
 
-appModule.service '$FormService', ['$http', ($http)] ->
+appModule.service '$FormService', ['$http', ($http) ->
   class Form
     submit: ($form) ->
       $http
@@ -38,3 +38,4 @@ appModule.service '$FormService', ['$http', ($http)] ->
 
 
   return new Form()
+]
