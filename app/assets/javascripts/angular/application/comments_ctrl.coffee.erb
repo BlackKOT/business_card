@@ -42,6 +42,7 @@ appModule.directive 'commentForm', ['$FormService', ($FormService) ->
       console.log 'new post'
     else
       console.log 'old post'
+  ]
 
   link: (scope, element, attrs) ->
     scope.submit = ($event) ->
@@ -60,6 +61,6 @@ appModule.directive 'commentForm', ['$FormService', ($FormService) ->
         $('.simple_captcha_image').html(response.captcha)
       result.error (data) =>
         $FormService.displayErrors(element, data)
-  ]}
+  }
 ]
 
