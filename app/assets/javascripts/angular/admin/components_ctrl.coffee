@@ -18,12 +18,12 @@ componentsCtrl.directive('componentForm', ['$http', ($http) ->
   return {
     restrict: 'A',
     scope: true,
-    controller: ($scope, $attrs) ->
+    controller: ['$scope', '$attrs', ($scope, $attrs) ->
       if ($attrs.componentForm == '0')
         console.log('new component');
       else
         console.log('old component');
 
     link: (scope, element, attrs) ->
-  }
+  ]}
 ])
