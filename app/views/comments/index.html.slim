@@ -7,7 +7,7 @@ div ng-controller = 'commentsCtrl'
   = link_to 'Add new comment', '#', class: 'btn btn-primary', data: {target:'#commentModal', toggle: 'modal'}
   .container
     .comments_block
-      div dir-paginate="comment in comments | itemsPerPage: commentsPerPage" total-items="totalComments" current-page="pageNumber"
+      div dir-paginate="comment in comments | itemsPerPage: commentsPerPage" total-items="totalComments" current-page="currentPage"
         .comment_item
           .row
             .col-12

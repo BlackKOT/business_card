@@ -3,6 +3,7 @@ appModule.controller('commentsCtrl', ['$scope', '$http', ($scope, $http) ->
     $http.get('/comments.json?page=' + pageNumber).then (result) ->
       $scope.comments = result.data.Items
       $scope.totalComments = result.data.Count
+      $scope.currentPage = pageNumber
       return
     return
 
@@ -55,9 +56,6 @@ appModule.directive 'commentForm', ['$FormService', ($FormService) ->
           scope.totalComments++
           scope.pageNumber = Math.ceil(scope.totalComments / scope.commentsPerPage)
           scope.pageChanged(scope.pageNumber)
-          $('dir-pagination-controls li')
-            .removeClass('active')
-            .eq(-2).addClass('active')
           $('.simple_captcha_image').html(response.captcha)
         result.error (data) =>
           $FormService.displayErrors(element, data)

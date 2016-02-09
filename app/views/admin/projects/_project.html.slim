@@ -1,4 +1,4 @@
-.row data-ng-repeat="project in projects"
+.row data-ng-repeat="project in projects track by $index"
   .col-md-4
     img data-ng-src="{{ project.image_url }}" src=''
   .col-md-8
