@@ -23,7 +23,8 @@ componentsCtrl.directive('componentForm', ['$http', ($http) ->
         console.log('new component');
       else
         console.log('old component');
+    ]
 
     link: (scope, element, attrs) ->
-  ]}
+  }
 ])
