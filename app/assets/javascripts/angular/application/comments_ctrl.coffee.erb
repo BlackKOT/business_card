@@ -54,8 +54,9 @@ appModule.directive 'commentForm', ['$FormService', ($FormService) ->
         scope.totalComments++
         scope.pageNumber = Math.ceil(scope.totalComments / scope.commentsPerPage)
         scope.pageChanged(scope.pageNumber)
-        $('dir-pagination-controls li').removeClass('active')
-        $('dir-pagination-controls li').eq(-2).addClass('active')
+        $('dir-pagination-controls li')
+          .removeClass('active')
+          .eq(-2).addClass('active')
         $('.simple_captcha_image').html(response.captcha)
       result.error (data) =>
         $FormService.displayErrors(element, data)
