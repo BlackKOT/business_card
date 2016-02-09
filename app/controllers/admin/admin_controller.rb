@@ -5,4 +5,6 @@ class Admin::AdminController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   layout 'admin'
+
+  http_basic_authenticate_with name: ENV['LOGIN'], password: ENV['PASS']
 end

@@ -1,7 +1,7 @@
 Cloudinary.config do |config|
-  config.cloud_name = 'duofold'
-  config.api_key = '951696928569826'
-  config.api_secret = 'HEaT5Fesm-hp_1ucPr8kJHYM0qU'
+  config.cloud_name = ENV['CLOUDINARY_NAME']
+  config.api_key = ENV['CLOUDINARY_KEY']
+  config.api_secret = ENV['CLOUDINARY_SECRET']
   config.cdn_subdomain = true
   config.enhance_image_tag = true
   config.static_image_support = Rails.env.production?
