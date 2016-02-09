@@ -10,11 +10,12 @@ appModule.controller('commentsCtrl', ['$scope', '$http', ($scope, $http) ->
   $scope.totaComments = 0
   $scope.commentsPerPage = 5
   getResultsPage 1
-  $scope.pagination = current: 1
+  $scope.pageNumber = 1
 
   $scope.pageChanged = (newPage) ->
     getResultsPage newPage
     return
+
   return
 
 ])
@@ -50,9 +51,12 @@ appModule.directive 'commentForm', ['$FormService', ($FormService) ->
       result.success (response) =>
         $('#commentModal').modal('hide')
         scope.comments.push(scope.comment)
-        console.log response
+        scope.totalComments++
+        scope.pageNumber = Math.ceil(scope.totalComments / scope.commentsPerPage)
+        scope.pageChanged(scope.pageNumber)
+        $('dir-pagination-controls li').removeClass('active')
+        $('dir-pagination-controls li').eq(-2).addClass('active')
         $('.simple_captcha_image').html(response.captcha)
-        #TODO create new pagination item on full records per page
       result.error (data) =>
         $FormService.displayErrors(element, data)
   }
