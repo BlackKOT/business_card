@@ -37,7 +37,7 @@ appModule.directive 'commentForm', ['$FormService', ($FormService) ->
   {
   restrict: 'A'
   scope: true
-  controller: ($scope, $attrs) ->
+  controller: ['$scope', '$attrs', ($scope, $attrs) ->
     if $attrs.commentForm == '0'
       console.log 'new post'
     else
@@ -60,6 +60,6 @@ appModule.directive 'commentForm', ['$FormService', ($FormService) ->
         $('.simple_captcha_image').html(response.captcha)
       result.error (data) =>
         $FormService.displayErrors(element, data)
-  }
+  ]}
 ]
 
