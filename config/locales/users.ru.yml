@@ -1,0 +1,11 @@
+ru:
+  users:
+    page_title: Наша команда
+
+    about_title: Тут будет заголовок
+    about_text: А здесь будет текст
+    about_text_appendix: А это информация внизу текста
+
+    contact_us:
+      title: Contact Us
+      email: Email
