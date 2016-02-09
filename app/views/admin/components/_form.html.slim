@@ -1,5 +1,5 @@
 = form_for [:admin, @component ||= Component.new], remote: true, html: {'server-form' => true, name: 'component', 'data-component-form' => @component.id || 0} do |f|
-  .form-group ng-init="component=#{@component.attrs(:name, :type_id).to_json}"
+  .form-group ng-init="component=#{@component.attributes.slice('name', 'type_id').to_json}"
     = f.label :name
     = f.text_field :name, 'ng-model' => 'component.name', required: true
     span ng-show="component.name.$error.required">Name is required.
