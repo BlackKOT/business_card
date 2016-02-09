@@ -24,7 +24,9 @@ header.business-header
   /! /.row
   hr
 
-  - @users.each_slice(2) do |users|
-    .row
-      = render users
+  /- @users.each_slice(2) do |users|
+  /  .row
+  /    = render users
+  .users data-ng-controller="usersCtrl"
+    = render 'users/user'
   hr

@@ -6,3 +6,4 @@
 #= require jquery_nested_form
 #= require admin/metisMenu.min
 # require tinymce-jquery
+#= require angular

@@ -5,7 +5,10 @@ class Project < ActiveRecord::Base
   has_many :project_users, dependent: :destroy
   has_many :images, dependent: :destroy
 
-
   accepts_nested_attributes_for :component_projects, allow_destroy: true
   accepts_nested_attributes_for :images, allow_destroy: true
+
+  def as_json(options = {})
+    { image_url: images.first.try(:url) || PictureUploader.default_url, id: id, name: name }
+  end
 end

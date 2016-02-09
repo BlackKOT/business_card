@@ -6,10 +6,12 @@ html
     = javascript_include_tag :admin, cache: true
     = csrf_meta_tag
   body
-    #wrapper
+    #wrapper ng-app="admin"
       = render 'layouts/admin/navbar'
       #page-wrapper
         = yield
+
+    = javascript_include_tag 'angular/admin', cache: true
         /.row
         /  .col-lg-12
         /    h1.page-header Dashboard

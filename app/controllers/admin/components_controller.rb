@@ -3,7 +3,10 @@ class Admin::ComponentsController < Admin::AdminController
   before_filter :find_component, except: [:index, :create]
 
   def index
-    @components = Component.all
+    respond_to do |mime|
+      mime.html
+      mime.json { render json: { components: Component.all.as_json } }
+    end
   end
 
   def create

@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    respond_to do |mime|
+      mime.html
+      mime.json { render json: { users: User.all.as_json } }
+    end
   end
 
   def show
