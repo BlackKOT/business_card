@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  prepend_before_filter -> {I18n.locale = params.fetch(:locale, 'en') }
+  prepend_before_filter -> {I18n.locale = params.fetch(:locale, 'en') if request.format.html?}
 
 protected
   def default_url_options
