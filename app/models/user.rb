@@ -1,18 +1,17 @@
 class User < ActiveRecord::Base
   mount_uploader :avatar, ::PictureUploader
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
   has_many :projects, through: :project_users
   has_many :project_users, dependent: :destroy
 
   accepts_nested_attributes_for :project_users, allow_destroy: true
 
+  def info
+    send("info_#{I18n.locale}")
+  end
+
   def full_name
-    "#{first_name} #{last_name}"
+    "#{send("first_name_#{I18n.locale}")} #{send("last_name_#{I18n.locale}")}"
   end
 
   def as_json(options = {})

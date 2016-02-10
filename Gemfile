@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 #use PostgreSQL
 gem 'pg'
-# user management
-gem 'devise'
 
 #images
 gem 'carrierwave'

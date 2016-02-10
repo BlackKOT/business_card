@@ -2,39 +2,57 @@
   .form-group
     = image_tag f.object.avatar.url(:thumbnail)
 
-  .form-group
-    = f.hidden_field :avatar_cache
-    = f.file_field :avatar
-  .form-group
-    = f.label :email
-    = f.email_field :email, class: 'form-control'
-  .form-group
-    = f.label :first_name
-    = f.text_field :first_name, class: 'form-control'
-  .form-group
-    = f.label :last_name
-    = f.text_field :last_name, class: 'form-control'
-  .form-group
-    = f.text_area :info, class: 'form-control tinymce'
-    = tinymce_assets
-    = tinymce
+
   .form-group.row
-    .col-md-6
-      = f.label :birthday
-      = f.date_select :birthday, class: 'form-control'
-    .col-md-6
+    .col-xs-6
+      = f.hidden_field :avatar_cache
+      = f.file_field :avatar
+
+    .col-xs-6
       = f.label 'Male ?'
       = f.check_box :gender
 
-  - if f.object.new_record?
-    = f.label :password
-    .form-group.row
-      .col-md-6
-        = f.password_field :password, class: 'form-control'
-      .col-md-6
-        = f.password_field :password_confirmation, class: 'form-control'
+  .form-group.row
+    .col-xs-6
+      = f.label :first_name_en
+      = f.text_field :first_name_en, class: 'form-control'
+    .col-xs-6
+      = f.label :first_name_ru
+      = f.text_field :first_name_ru, class: 'form-control'
 
   .form-group.row
+    .col-xs-6
+      = f.label :last_name_en
+      = f.text_field :last_name_en, class: 'form-control'
+
+    .col-xs-6
+      = f.label :last_name_ru
+      = f.text_field :last_name_ru, class: 'form-control'
+
+
+  .form-group.row
+    .col-xs-6
+      = f.label :birthday
+      .form-group
+        = f.date_select :birthday, start_year: 1970, end_year: Date.today.year - 16, class: 'form-control'
+    .col-xs-6
+      = f.label :email
+      = f.email_field :email, class: 'form-control'
+
+  .form-group.row
+    .col-xs-6
+      = f.label :info_en
+      = f.text_area :info_en, class: 'form-control tinymce'
+      = tinymce_assets
+      = tinymce
+
+    .col-xs-6
+      = f.label :info_ru
+      = f.text_area :info_ru, class: 'form-control tinymce'
+      = tinymce_assets
+      = tinymce
+
+  .form-group
     = f.label_tag 'Projects'
     = f.fields_for :project_users do |pu|
       = pu.collection_select :project_id, Project.all, :id, :name, {}, class: 'projectsList'

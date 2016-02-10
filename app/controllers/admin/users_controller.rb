@@ -34,11 +34,7 @@ class Admin::UsersController < Admin::AdminController
 
   def destroy
     @user.destroy
-    if @user.destroyed?
-      redirect_to [:admin, :users]
-    else
-      redirect_to [:admin, :users], alert: 'Error!'
-    end
+    redirect_to [:admin, :users], alert: @user.destroyed? ? nil : 'Error!'
   end
 
   private
@@ -49,8 +45,9 @@ class Admin::UsersController < Admin::AdminController
 
   def user_params
     params.require(:user).permit(
-      :email, :first_name, :last_name, :birthday,:gender, :avatar,
-      :info, :password, :password_confirmation, :avatar, :avatar_cache,
+      :email, :first_name_ru, :last_name_ru, :birthday,:gender, :avatar,
+      :info_ru, :password, :password_confirmation, :avatar, :avatar_cache,
+      :first_name_en, :last_name_en, :info_en,
       project_users_attributes: [:id, :project_id, :user_id, :_destroy]
     )
   end

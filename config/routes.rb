@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
-
   scope module: 'admin', path: '/admin', as: 'admin' do
     resources :users
     resources :projects
