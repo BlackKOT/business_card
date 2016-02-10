@@ -2,22 +2,26 @@ div ng-controller = 'commentsCtrl'
   = render layout: 'shared/modal', locals: {title: 'Create comment dialog', modal_id: 'commentModal'} do
     = render 'comments/form'
   hr
-  h1
-    .text-center Guestbook
-  = link_to 'Add new comment', '#', class: 'btn btn-primary', data: {target:'#commentModal', toggle: 'modal'}
-  .container
-    .comments_block
-      div dir-paginate="comment in comments | itemsPerPage: commentsPerPage" total-items="totalComments" current-page="currentPage"
-        .comment_item
-          .row
-            .col-12
-              .col-md-1
-                | {{comment.name}}
-              .col-md-2
-                | {{comment.email}}
-            .col-md-12
-              | {{comment.body}}
-          hr
-  dir-pagination-controls on-page-change="pageChanged(newPageNumber)" template-url=asset_path('dirPagination.tpl.html')
+  h1.text-center Guestbook
+  = content_for :pagination do
+    .text-center
+      = link_to 'Add new comment', '#', class: 'btn btn-primary new_comment', data: {target:'#commentModal', toggle: 'modal'}
+      dir-pagination-controls on-page-change="pageChanged(newPageNumber)" template-url=asset_path('dirPagination.tpl.html')
 
-    /= paginate @comments
+
+  = yield :pagination
+
+  .comments_block
+    div dir-paginate="comment in comments | itemsPerPage: commentsPerPage" total-items="totalComments" current-page="currentPage"
+      .comment_item
+        .row
+          .col-12
+            .col-md-1
+              | {{comment.name}}
+            .col-md-2
+              | {{comment.email}}
+          .col-md-12
+            | {{comment.body}}
+        hr
+
+  = yield :pagination

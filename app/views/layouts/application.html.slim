@@ -45,7 +45,7 @@ html
 
     /! Footer
     footer
-      .col-sm-12
+      .col-sm-12.text-center
         h2= t('users.contact_us.title')
         /address
         /  strong Start Bootstrap
@@ -64,8 +64,7 @@ html
             = t('users.contact_us.email')
             | :
             a href="mailto:#"  name@example.com
-      .row
-        .col-lg-12
-          p.text-center == "#{t('copyright')} &copy; 2015"
+      .col-lg-12
+        p.text-center == "#{t('copyright')} &copy; 2015"
 
     = javascript_include_tag 'angular/application', cache: true

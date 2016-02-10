@@ -3,8 +3,6 @@ class CommentsController < ApplicationController
   include SimpleCaptcha::ViewHelper
   include ActionView::Helpers::FormHelper
 
-  respond_to :json, only: :create
-
   def index
     # @comments = pagination(Comment.order('created_at DESC'), params[:page], 15)
     respond_to do |mime|
