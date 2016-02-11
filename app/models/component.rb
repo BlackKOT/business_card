@@ -3,6 +3,7 @@ class Component < ActiveRecord::Base
   has_many :component_projects
 
   validates :name, presence: true, uniqueness: true
+  validates :type_id, presence: true
 
   COMPONENT_TYPES = {
     1 => 'framework',
