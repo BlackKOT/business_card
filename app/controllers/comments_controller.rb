@@ -14,8 +14,8 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.save_with_captcha
-    # deliver_later!
-    NotifyMailer.comment_notify(@comment).deliver_now! unless (has_errors = @comment.errors.present?)
+    #deliver_now!
+    NotifyMailer.comment_notify(@comment).deliver_later! unless (has_errors = @comment.errors.present?)
 
     render json:  {
       errors: @comment.errors,
