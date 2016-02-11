@@ -56,8 +56,8 @@ appModule.directive 'commentForm', ['$FormService', ($FormService) ->
           scope.totalComments++
           scope.pageNumber = Math.ceil(scope.totalComments / scope.commentsPerPage)
           scope.pageChanged(scope.pageNumber)
-          $('.simple_captcha_image').html(response.captcha)
           $('input, textarea', '.new_comment').val('')
+          $('.simple_captcha_image').html(response.captcha)
         result.error (data) =>
           $FormService.displayErrors(element, data)
   }
