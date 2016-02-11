@@ -1,7 +1,8 @@
 = nested_form_for [:admin, @user||User.new], multipart: true do |f|
+  = render 'shared/form_errors', form_errors: f.object
+
   .form-group
     = image_tag f.object.avatar.url(:thumbnail)
-
 
   .form-group.row
     .col-xs-6
@@ -16,6 +17,7 @@
     .col-xs-6
       = f.label :first_name_en
       = f.text_field :first_name_en, class: 'form-control'
+
     .col-xs-6
       = f.label :first_name_ru
       = f.text_field :first_name_ru, class: 'form-control'
