@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :projects, through: :project_users
   has_many :project_users, dependent: :destroy
 
+  validates :first_name_en, :first_name_ru, :last_name_en, :last_name_ru, :info_en, :info_ru, presence: true
+
   accepts_nested_attributes_for :project_users, allow_destroy: true
 
   def info
