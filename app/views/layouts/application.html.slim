@@ -62,8 +62,9 @@ html
           /br
           abbr title=t('users.contact_us.email')
             = t('users.contact_us.email')
-            | :
-            a href="mailto:#"  name@example.com
+            | :&nbsp
+            a href="mailto:#{ENV['GMAIL_USERNAME']}"
+              = ENV['GMAIL_USERNAME']
       .col-lg-12
         p.text-center == "#{t('copyright')} &copy; 2015"
 
