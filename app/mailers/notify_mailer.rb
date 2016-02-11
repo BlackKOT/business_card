@@ -4,6 +4,6 @@ class NotifyMailer < ActionMailer::Base
 
   def comment_notify(comment)
     @comment = comment
-    mail(to: ENV['GMAIL_USERNAME:'], subject: '!!!!!New comment')
+    mail(to: ENV['GMAIL_USERNAME'], subject: '!!!!!New comment')
   end
 end
