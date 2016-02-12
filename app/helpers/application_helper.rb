@@ -1,6 +1,6 @@
 module ApplicationHelper
   def lang_option(lang_name)
-    exp = /\/en\/|\/ru\//
+    exp = /\/en(\/|$)|\/ru(\/|$)/
 
     lang_url = if (request.path =~ exp)
       request.path.gsub(exp, "/#{lang_name}/")
