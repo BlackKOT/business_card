@@ -9,6 +9,9 @@ html
 
     meta content="width=device-width, initial-scale=1" name="viewport"
   body class=params['controller'] ng-app="application"
+    javascript:
+      window.locale = "#{I18n.locale}";
+
     /! Navigation
     nav.navbar.navbar-inverse.navbar-fixed-top role="navigation"
       .container
@@ -67,6 +70,10 @@ html
             | :&nbsp
             a href="mailto:#{ENV['GMAIL_USERNAME']}"
               = ENV['GMAIL_USERNAME']
+      .col-lg-12.text-center
+        b POWERED BY&nbsp;
+        = image_tag 'pow_ror.gif', height: 48
+        = image_tag 'pow_angularjs.gif', height: 48
       .col-lg-12
         p.text-center == "#{t('copyright')} &copy; 2015"
 
