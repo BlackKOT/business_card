@@ -25,7 +25,7 @@
     = f.label 'Components'
     /button.btn.btn-default data-target="#componentModal" data-toggle="modal" type="button"
     = f.fields_for :component_projects do |cp|
-      = cp.collection_select :component_id, Component.all, :id, :name, {}, class: 'componentsList'
+      = cp.collection_select :component_id, Component.order(:name), :id, :name, {}, class: 'componentsList'
       = cp.link_to_remove 'Remove this component', class: 'btn btn-danger'
 
     div
