@@ -1,9 +1,13 @@
 .container
   .row
     .col-lg-12
-      h1.page-header
+      img src=@user.avatar_url class='img-circle img-responsive centered fix-size'
+      h1.text-center
+        = @user.full_name
+      .text-center
+        = raw(@user.info)
+      h2.page-header.text-center
         = t('projects.page_title', name: @user.full_name)
-
   .projects_block
     = render @projects
 
