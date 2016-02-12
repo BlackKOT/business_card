@@ -1,3 +1,7 @@
+= link_to '#', class: 'btn btn-primary new_comment', data: {target:'#commentModal', toggle: 'modal'} do
+  i.fa.fa-plus
+  p Add new
+
 div ng-controller = 'commentsCtrl'
   = render layout: 'shared/modal', locals: {title: 'Create comment dialog', modal_id: 'commentModal'} do
     = render 'comments/form'
@@ -5,7 +9,6 @@ div ng-controller = 'commentsCtrl'
   h1.text-center Guestbook
   = content_for :pagination do
     .text-center
-      = link_to 'Add new comment', '#', class: 'btn btn-primary new_comment', data: {target:'#commentModal', toggle: 'modal'}
       dir-pagination-controls on-page-change="pageChanged(newPageNumber)" template-url=asset_path('dirPagination.tpl.html')
 
 
