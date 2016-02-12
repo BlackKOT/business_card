@@ -9,6 +9,9 @@ html
 
     meta content="width=device-width, initial-scale=1" name="viewport"
   body class=params['controller'] ng-app="application"
+    javascript:
+      window.locale = "#{I18n.locale}";
+
     /! Navigation
     nav.navbar.navbar-inverse.navbar-fixed-top role="navigation"
       .container
