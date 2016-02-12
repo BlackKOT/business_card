@@ -3,7 +3,7 @@ h1 Project #{@project.name}
 .images
   - @project.images.each do |image|
     = link_to '#', class: 'img_clc', data: {url: image.path.url} do
-      = image_tag image.path.standard.url
+      = image_tag image.path.standard.url, size: '200x200'
 
 hr
 .components
