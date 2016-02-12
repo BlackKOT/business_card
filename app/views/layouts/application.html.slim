@@ -19,10 +19,11 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href="/" = t('brand_title')
+          = link_to t('brand_title'), root_path, class: 'navbar-brand'
+
           ul class="nav navbar-nav flags"
-            li.pull-left== lang_option('en')
-            li.pull-left== lang_option('ru')
+            li.pull-left= lang_option('en')
+            li.pull-left= lang_option('ru')
 
         #collapsed-menu.collapse.navbar-collapse
           ul class="nav navbar-nav navbar-right"
