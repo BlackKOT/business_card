@@ -1,2 +1,16 @@
-h1 Projects#show
-p Find me in app/views/projects/show.html.slim
+h1 Project #{@project.name}
+
+.images
+  - @project.images.each do |image|
+    = link_to '#', class: 'img_clc', data: {url: image.path.url} do
+      = image_tag image.path.standard.url
+
+hr
+.components
+  p Components:
+  .pad_left
+    - @components.each do |name, collection|
+      .pad_left
+        b #{name}:
+        .pad_left
+          = render collection
