@@ -9,7 +9,7 @@ div ng-controller = 'commentsCtrl'
   h1.text-center Guestbook
   = content_for :pagination do
     .text-center
-      dir-pagination-controls on-page-change="pageChanged(newPageNumber)" template-url=asset_path('dirPagination.tpl.html')
+      dir-pagination-controls on-page-change="data.getResultsPage(newPageNumber)" template-url=asset_path('dirPagination.tpl.html')
 
 
   = yield :pagination

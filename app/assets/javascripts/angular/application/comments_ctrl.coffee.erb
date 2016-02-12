@@ -1,5 +1,5 @@
 appModule.controller('commentsCtrl', ['$scope', '$http', ($scope, $http) ->
-  getResultsPage = (pageNumber) ->
+  $scope.getResultsPage = (pageNumber) ->
     $http.get('/comments.json?page=' + pageNumber).then (result) ->
       $scope.comments = result.data.Items
       $scope.totalComments = result.data.Count
@@ -10,12 +10,8 @@ appModule.controller('commentsCtrl', ['$scope', '$http', ($scope, $http) ->
   $scope.comments = []
   $scope.totaComments = 0
   $scope.commentsPerPage = 5
-  getResultsPage 1
+  $scope.getResultsPage 1
   $scope.pageNumber = 1
-
-  $scope.pageChanged = (newPage) ->
-    getResultsPage newPage
-    return
 
   return
 
@@ -55,7 +51,7 @@ appModule.directive 'commentForm', ['$FormService', ($FormService) ->
           scope.comments.push(scope.comment)
           scope.totalComments++
           scope.pageNumber = Math.ceil(scope.totalComments / scope.commentsPerPage)
-          scope.pageChanged(scope.pageNumber)
+          scope.getResultsPage(scope.pageNumber)
           $('input, textarea', '.new_comment').val('')
           $('.simple_captcha_image').html(response.captcha)
         result.error (data) =>
