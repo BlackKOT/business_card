@@ -2,20 +2,21 @@
   i.fa.fa-plus
   p Add new
 
-div ng-controller = 'commentsCtrl'
+div ng-controller = 'commentsCtrl as data'
   = render layout: 'shared/modal', locals: {title: 'Create comment dialog', modal_id: 'commentModal'} do
     = render 'comments/form'
   hr
   h1.text-center Guestbook
   = content_for :pagination do
     .text-center
-      dir-pagination-controls on-page-change="data.getResultsPage(newPageNumber)" template-url=asset_path('dirPagination.tpl.html')
+      dir-pagination-controls on-page-change="data.getData(newPageNumber)" max-size="8" direction-links="true" boundary-links="true" template-url=asset_path('dirPagination.tpl.html')
 
 
   = yield :pagination
 
   .comments_block
-    div dir-paginate="comment in comments | itemsPerPage: commentsPerPage" total-items="totalComments" current-page="currentPage"
+
+    div dir-paginate="comment in data.comments | itemsPerPage: data.itemsPerPage" total-items="data.total_count"
       .comment_item
         .row
           .col-12

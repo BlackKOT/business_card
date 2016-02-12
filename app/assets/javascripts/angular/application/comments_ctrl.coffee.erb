@@ -1,61 +1,88 @@
+#app = angular.module('angularTable', [ 'angularUtils.directives.dirPagination' ])
+
 appModule.controller('commentsCtrl', ['$scope', '$http', ($scope, $http) ->
-  $scope.getResultsPage = (pageNumber) ->
-    $http.get('/comments.json?page=' + pageNumber).then (result) ->
-      $scope.comments = result.data.Items
-      $scope.totalComments = result.data.Count
-      $scope.currentPage = pageNumber
+  vm = this
+  vm.comments = []
+  #declare an empty array
+  vm.pageno = 1
+  # initialize page no to 1
+  vm.total_count = 0
+  vm.itemsPerPage = 5
+  #this could be a dynamic value from a drop down
+
+  vm.getData = (pageno) ->
+    vm.comments = []
+    $http.get('/comments.json?page=' + pageno).success (response) ->
+      vm.comments = response.Items
+      # data to be displayed on current page.
+      vm.total_count = response.Count
+      # total data count.
       return
     return
 
-  $scope.comments = []
-  $scope.totaComments = 0
-  $scope.commentsPerPage = 5
-  $scope.getResultsPage 1
-  $scope.pageNumber = 1
-
+  vm.getData vm.pageno
   return
-
 ])
 
-appModule.directive 'commentsList', ->
-  {
-    restrict: 'A'
-    scope: {comment: '='}
-#    replace: true
-    controller: 'commentsCtrl'
-    templateUrl: "<%= asset_path("angular/application/templates/comment.html.slim") %>"
-#    compile: (tElement, tAttrs, transclude) ->
-#        rpt = document.createAttribute('ng-repeat')
-#        rpt.nodeValue = tAttrs.repeatStatement
-#        tElement[0].children[0].attributes.setNamedItem(rpt)
-  }
 
-appModule.directive 'commentForm', ['$FormService', ($FormService) ->
-  {
-    restrict: 'A'
-    scope: true
-    controller: ['$scope', '$attrs', ($scope, $attrs) ->
-      if $attrs.commentForm == '0'
-        console.log 'new post'
-      else
-        console.log 'old post'
-    ]
-
-    link: (scope, element, attrs) ->
-      scope.submit = ($event) ->
-        $event.preventDefault()
-        $FormService.clearErrors(element)
-        result = $FormService.submit(element)
-        result.success (response) =>
-          $('#commentModal').modal('hide')
-          scope.comments.push(scope.comment)
-          scope.totalComments++
-          scope.pageNumber = Math.ceil(scope.totalComments / scope.commentsPerPage)
-          scope.getResultsPage(scope.pageNumber)
-          $('input, textarea', '.new_comment').val('')
-          $('.simple_captcha_image').html(response.captcha)
-        result.error (data) =>
-          $FormService.displayErrors(element, data)
-  }
-]
+#appModule.controller('commentsCtrl', ['$scope', '$http', ($scope, $http) ->
+#  $scope.getResultsPage = (pageNumber) ->
+#    $http.get('/comments.json?page=' + pageNumber).then (result) ->
+#      $scope.comments = result.data.Items
+#      $scope.totalComments = result.data.Count
+##      $scope.currentPage = pageNumber
+#      return
+#    return
+#
+#  $scope.comments = []
+#  $scope.totaComments = 0
+#  $scope.commentsPerPage = 5
+#  $scope.getResultsPage 1
+#  $scope.pageNumber = 1
+#
+#  return
+#
+#])
+#
+#appModule.directive 'commentsList', ->
+#  {
+#    restrict: 'A'
+#    scope: {comment: '='}
+##    replace: true
+#    controller: 'commentsCtrl'
+#    templateUrl: "<%= asset_path("angular/application/templates/comment.html.slim") %>"
+##    compile: (tElement, tAttrs, transclude) ->
+##        rpt = document.createAttribute('ng-repeat')
+##        rpt.nodeValue = tAttrs.repeatStatement
+##        tElement[0].children[0].attributes.setNamedItem(rpt)
+#  }
+#
+#appModule.directive 'commentForm', ['$FormService', ($FormService) ->
+#  {
+#    restrict: 'A'
+#    scope: true
+#    controller: ['$scope', '$attrs', ($scope, $attrs) ->
+#      if $attrs.commentForm == '0'
+#        console.log 'new post'
+#      else
+#        console.log 'old post'
+#    ]
+#
+#    link: (scope, element, attrs) ->
+#      scope.submit = ($event) ->
+#        $event.preventDefault()
+#        $FormService.clearErrors(element)
+#        result = $FormService.submit(element)
+#        result.success (response) =>
+#          $('#commentModal').modal('hide')
+#          scope.comments.push(scope.comment)
+##          scope.totalComments++
+##          scope.pageNumber = Math.ceil(scope.totalComments / scope.commentsPerPage)
+##          scope.getResultsPage(scope.pageNumber)
+#          $('input, textarea', '.new_comment').val('')
+#          $('.simple_captcha_image').html(response.captcha)
+#        result.error (data) =>
+#          $FormService.displayErrors(element, data)
+#  }
+#]
 
