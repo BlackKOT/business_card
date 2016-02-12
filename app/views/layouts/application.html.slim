@@ -19,7 +19,8 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href="#{root_path}" = t('brand_title')
+          = link_to t('brand_title'), root_path, class: 'navbar-brand'
+
           ul class="nav navbar-nav flags"
             li.pull-left= lang_option('en')
             li.pull-left= lang_option('ru')
