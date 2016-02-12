@@ -22,6 +22,26 @@
  *= require blueimp-gallery-video
  */
 
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 150px !important;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 100px;
+  background-color: #f5f5f5;
+}
+
+
+
 dir-pagination-controls {
   padding: 0 10px;
 }
@@ -35,7 +55,13 @@ dir-pagination-controls {
 }
 
 a.new_comment {
-  margin: 20px 0;
+  /*margin: 20px 0;*/
+  position: fixed;
+  left: 0;
+  top: 50%;
+  max-width: calc(7% - 8px);
+  height: 60px;
+  padding: 6px 6px !important;
 }
 
 a { outline: 0!important;}
