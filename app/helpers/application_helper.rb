@@ -10,11 +10,9 @@ module ApplicationHelper
       uri.to_s
     end
 
-
-
     link_to(lang_url) do
       content_tag(:div, '&nbsp;', class: "flag #{lang_name.to_sym}_flag #{'selected' if I18n.locale == lang_name.to_sym}")
-    end
+    end.html_safe
   end
 
   def ng_link(link)
