@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find_by(id: params[:id].to_i)
+    @components = @project.components.group_by(&:type_name)
   end
 
   private
