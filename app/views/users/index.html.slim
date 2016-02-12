@@ -1,10 +1,10 @@
 = render layout: 'shared/slider' do
 
   = render layout: 'shared/slider_item' do
-    = image_tag 'our_baggage_new.gif', class: 'img-rounded'
+    = image_tag 'AjaxLoader.gif', class: 'img-rounded async_img', data: {src: image_path('our_baggage_new.gif')}
 
   = render layout: 'shared/slider_item' do
-    = image_tag 'main_image.jpg', class: 'img-rounded'
+    = image_tag 'AjaxLoader.gif', class: 'img-rounded async_img', data: {src: image_path('main_image.jpg')}
 
 header.business-header
   .container
