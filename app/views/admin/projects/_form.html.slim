@@ -9,9 +9,14 @@
   /.row
   /  = f.hidden_field :avatar_cache
   /  = f.file_field :avatar
-  .form-group
-    = f.label :name
-    = f.text_field :name, class: 'form-control'
+  .form-group.row
+    .col-xs-9
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+    .col-xs-3
+      = f.label :order_pos
+      = f.text_field :order_pos, class: 'form-control integer'
+
   .form-group
     = f.label :company
     = f.text_field :company, class: 'form-control'

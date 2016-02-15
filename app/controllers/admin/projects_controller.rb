@@ -49,9 +49,8 @@ class Admin::ProjectsController < Admin::AdminController
 
   def project_params
     params.require(:project).permit(
-      :name,
-      :company,
-      :info_ru, :info_en,
+      :name, :company,
+      :info_ru, :info_en, :order_pos,
       component_projects_attributes: [:id, :project_id, :component_id, :_destroy],
       images_attributes: [:id, :path, :_destroy]
     )
