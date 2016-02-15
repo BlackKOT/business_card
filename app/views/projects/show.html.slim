@@ -11,10 +11,8 @@ hr
         = image_tag image.path.standard.url
 
   .col-xs-6.components
-    p Components:
-    .pad_left
-      - @components.each do |name, collection|
+    - @components.each do |name, collection|
+      .pad_left
+        b #{name}:
         .pad_left
-          b #{name}:
-          .pad_left
-            = render collection
+          = render collection
