@@ -12,7 +12,7 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :images, allow_destroy: true
 
   def info
-    send("info_#{I18n.locale}")
+    send("info_#{I18n.locale}").to_s
   end
 
   def as_json(options = {})
