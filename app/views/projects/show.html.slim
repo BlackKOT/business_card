@@ -1,18 +1,20 @@
 h1 Project #{@project.name} (#{@project.company})
 
-.images
-  - @project.images.each do |image|
-    = link_to '#', class: 'img_clc', data: {url: image.path.url} do
-      = image_tag image.path.standard.url, size: '200x200'
-
 hr
 = @project.info.html_safe
 hr
-.components
-  p Components:
-  .pad_left
-    - @components.each do |name, collection|
-      .pad_left
-        b #{name}:
+
+.row
+  .col-xs-6.images
+    - @project.images.each do |image|
+      = link_to '#', class: 'img_clc', data: {url: image.path.url} do
+        = image_tag image.path.standard.url
+
+  .col-xs-6.components
+    p Components:
+    .pad_left
+      - @components.each do |name, collection|
         .pad_left
-          = render collection
+          b #{name}:
+          .pad_left
+            = render collection
