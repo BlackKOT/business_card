@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
   has_many :images, dependent: :destroy
 
   validates :name, :info_en, :info_ru, presence: true
+  validates :order_pos, presence: true, numericality: true
 
   accepts_nested_attributes_for :component_projects, allow_destroy: true
   accepts_nested_attributes_for :images, allow_destroy: true
