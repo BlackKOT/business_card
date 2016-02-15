@@ -31,7 +31,8 @@
 //= require bootstrap-image-gallery
 
 jQuery.ias({
-    container : '.comments_block, .projects_block',
+    container: '.comments_block, .projects_block',
+    triggerPageThreshold: 1000,
     item: '.comment_item, .project',
     pagination: '.pagination',
     next: 'span.next a',
