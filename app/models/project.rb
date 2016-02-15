@@ -5,10 +5,14 @@ class Project < ActiveRecord::Base
   has_many :project_users, dependent: :destroy
   has_many :images, dependent: :destroy
 
-  validates :name, :company, :info, presence: true
+  validates :name, :company, :info_en, :info_ru, presence: true
 
   accepts_nested_attributes_for :component_projects, allow_destroy: true
   accepts_nested_attributes_for :images, allow_destroy: true
+
+  def info
+    send("info_#{I18n.locale}")
+  end
 
   def as_json(options = {})
     { image_url: images.first.try(:url) || PictureUploader.default_url, id: id, name: name }

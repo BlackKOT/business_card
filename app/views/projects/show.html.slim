@@ -6,6 +6,8 @@ h1 Project #{@project.name}
       = image_tag image.path.standard.url, size: '200x200'
 
 hr
+= @project.info.html_safe
+hr
 .components
   p Components:
   .pad_left

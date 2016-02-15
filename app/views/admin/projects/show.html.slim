@@ -1,5 +1,5 @@
-h1
-  | Project: #{@project.name}
-  | Company: #{@project.company}
-  | Info: #{@project.info}
-  | Info: #{@project.info}
+h1 Project: #{@project.name}
+p Company: #{@project.company}
+hr
+p Info en: #{@project.info_en.html_safe}
+p Info ru: #{@project.info_ru.html_safe}
