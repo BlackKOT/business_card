@@ -24,11 +24,11 @@ html
             span.icon-bar
           = link_to t('brand_title'), root_path, class: 'navbar-brand'
 
-          .flags.pull-left
-            = lang_option('en')
-            = lang_option('ru')
-
         #collapsed-menu.collapse.navbar-collapse
+          ul class="nav navbar-nav flags"
+            li= lang_option('en')
+            li= lang_option('ru')
+
           ul class="nav navbar-nav navbar-right"
             li= link_to t('guestbook'), comments_path
 
