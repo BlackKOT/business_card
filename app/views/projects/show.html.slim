@@ -5,12 +5,12 @@ hr
 hr
 
 .row
-  .col-xs-6.images
+  .col-xs-12.col-sm-6.images
     - @project.images.each do |image|
       = link_to '#', class: 'img_clc', data: {url: image.path.url} do
         = image_tag image.path.standard.url
 
-  .col-xs-6.components
+  .col-xs-12.col-sm-6.components
     - @components.each do |name, collection|
       .pad_left
         b #{name}:
