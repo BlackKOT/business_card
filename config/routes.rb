@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 
     root 'users#index'
   end
+
+  match '*path' => redirect { |p, req| req.flash[:alert] = 'Aaargh, this path is not exist'; '/' }, via: [:get, :post]
 end
