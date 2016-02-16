@@ -55,14 +55,14 @@ html
         .col-xs-6.text-center.pad
           p
             abbr title=t('users.contact_us.email')
-              = t('users.contact_us.email')
-              | :&nbsp;
-              br.visible-xs
+              span.email_text
+                = t('users.contact_us.email')
+                | :&nbsp;
               a href="mailto:#{ENV['GMAIL_USERNAME']}"
                 = ENV['GMAIL_USERNAME']
             br
             == "#{t('copyright')} &copy; 2015"
-        .col-xs-6.text-center.pad
+        .col-xs-6.text-center.pad.powered_by
           = image_tag 'pow_ror.gif', height: 32
           |&nbsp;&nbsp;&shy;
           = image_tag 'pow_angularjs.gif', height: 32
