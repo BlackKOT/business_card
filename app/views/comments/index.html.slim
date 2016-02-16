@@ -11,9 +11,6 @@ div ng-controller = 'commentsCtrl'
     .text-center
       dir-pagination-controls on-page-change="getResultsPage(newPageNumber)" template-url=asset_path('dirPagination.tpl.html')
 
-
-  = yield :pagination
-
   .comments_block
     div dir-paginate="comment in comments | itemsPerPage: commentsPerPage" total-items="totalComments" current-page="currentPage"
       .comment_item
