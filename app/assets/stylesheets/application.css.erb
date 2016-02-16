@@ -75,13 +75,24 @@ dir-pagination-controls {
 }
 
 a.new_comment {
+  display: table;
   /*margin: 20px 0;*/
   position: fixed;
   left: 0;
   top: 50%;
-  max-width: calc(7% - 8px);
+  max-width: calc(10% - 6px);
+  min-width: 50px;
   height: 60px;
   padding: 6px 6px !important;
+}
+
+a.new_comment i, a.new_comment div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+a.new_comment div {
+  padding: 4px;
 }
 
 a { outline: 0!important;}
