@@ -56,7 +56,8 @@ html
           p
             abbr title=t('users.contact_us.email')
               = t('users.contact_us.email')
-              | :&nbsp;&shy;
+              | :&nbsp;
+              br.visible-xs
               a href="mailto:#{ENV['GMAIL_USERNAME']}"
                 = ENV['GMAIL_USERNAME']
             br
