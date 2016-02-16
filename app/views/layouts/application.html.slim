@@ -53,7 +53,7 @@ html
     footer.footer
       .row.vertical-align
         .col-xs-6.text-center
-          h2= t('users.contact_us.title')
+          /h2= t('users.contact_us.title')
           /address
           /  strong Start Bootstrap
           /  | 3481
@@ -73,10 +73,10 @@ html
               a href="mailto:#{ENV['GMAIL_USERNAME']}"
                 = ENV['GMAIL_USERNAME']
         .col-xs-6.text-center.pad
-          b POWERED BY&nbsp;
           = image_tag 'pow_ror.gif', height: 48
           |&nbsp;&nbsp;
           = image_tag 'pow_angularjs.gif', height: 48
-          p.text-center == "#{t('copyright')} &copy; 2015"
+        .col-xs-12.text-center
+          == "#{t('copyright')} &copy; 2015"
 
     = javascript_include_tag 'angular/application', cache: true

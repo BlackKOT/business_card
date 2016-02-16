@@ -5,7 +5,7 @@ $main-height: 400px;
 
 .owl-carousel{
   width: auto;
-  height: $main-height;
+  max-height: $main-height;
 }
 
 .item {
