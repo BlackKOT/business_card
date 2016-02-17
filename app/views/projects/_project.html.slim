@@ -1,10 +1,10 @@
 .project
   .row
-    .col-md-7
-      = render partial: 'shared/gallery', locals: {images: project.images}
-    .col-md-5
+    .col-xs-12.col-sm-7.col-sm-push-5
       h3= project.name
       h4= project.company
       p== project.info
       = link_to 'View Project', project_path(project), class: 'btn btn-primary'
+    .col-xs-12.col-sm-5.col-sm-pull-7
+      = render partial: 'shared/gallery', locals: {images: project.images}
   hr

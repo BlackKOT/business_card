@@ -24,11 +24,12 @@ html
             span.icon-bar
           = link_to t('brand_title'), root_path, class: 'navbar-brand'
 
-          .flags.pull-left
-            = lang_option('en')
-            = lang_option('ru')
-
         #collapsed-menu.collapse.navbar-collapse
+          ul class='nav navbar-nav flags'
+            li
+              = lang_option('en')
+              = lang_option('ru')
+
           ul class="nav navbar-nav navbar-right"
             li= link_to t('guestbook'), comments_path
 
@@ -51,31 +52,19 @@ html
     /! Footer
     footer.footer
       .row.vertical-align
-        .col-xs-6.text-center
-          h2= t('users.contact_us.title')
-          /address
-          /  strong Start Bootstrap
-          /  | 3481
-          /  br
-          /  | Melrose Place
-          /  Beverly
-          /  br
-          /  | Hills, CA 90210
-          /  br
-          address
-            /abbr title="Phone"
-            /| P: (123) 456-7890
-            /br
+        .col-xs-6.text-center.pad
+          p
             abbr title=t('users.contact_us.email')
-              = t('users.contact_us.email')
-              | :&nbsp
+              span.email_text
+                = t('users.contact_us.email')
+                | :&nbsp;
               a href="mailto:#{ENV['GMAIL_USERNAME']}"
                 = ENV['GMAIL_USERNAME']
-        .col-xs-6.text-center.pad
-          b POWERED BY&nbsp;
-          = image_tag 'pow_ror.gif', height: 48
-          |&nbsp;&nbsp;
-          = image_tag 'pow_angularjs.gif', height: 48
-          p.text-center == "#{t('copyright')} &copy; 2015"
+            br
+            == "#{t('copyright')} &copy; 2015"
+        .col-xs-6.text-center.pad.powered_by
+          = image_tag 'pow_ror.gif', height: 32
+          |&nbsp;&nbsp;&shy;
+          = image_tag 'pow_angularjs.gif', height: 32
 
     = javascript_include_tag 'angular/application', cache: true
