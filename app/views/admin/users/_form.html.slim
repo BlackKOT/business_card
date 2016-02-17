@@ -60,4 +60,15 @@
       = pu.collection_select :project_id, Project.all, :id, :name, {}, class: 'projectsList'
       = pu.link_to_remove 'Remove this project', class: 'btn btn-danger'
     = f.link_to_add 'Add a project', :project_users, class: 'btn btn-success'
+
+  .form-group
+    = f.label_tag 'User Links'
+    = f.fields_for :user_links do |ul|
+      = ul.label_tag 'Resource Name'
+      = ul.collection_select :resource_name, UserLink::RESOURCE_NAMES, :first, :last, {}, class: 'projectsList'
+      = ul.label_tag 'Link'
+      = ul.text_field :link
+      = ul.link_to_remove 'Remove this link', class: 'btn btn-danger'
+    = f.link_to_add 'Add a link', :user_links, class: 'btn btn-success'
+
   = f.button type: :submit, class: 'btn btn-default'

@@ -48,7 +48,8 @@ class Admin::UsersController < Admin::AdminController
       :email, :first_name_ru, :last_name_ru, :birthday,:gender, :avatar,
       :info_ru, :password, :password_confirmation, :avatar, :avatar_cache,
       :first_name_en, :last_name_en, :info_en,
-      project_users_attributes: [:id, :project_id, :user_id, :_destroy]
+      project_users_attributes: [:id, :project_id, :user_id, :_destroy],
+      user_links_attributes: [:id, :user_id, :resource_name, :link, :_destroy]
     )
   end
 end
