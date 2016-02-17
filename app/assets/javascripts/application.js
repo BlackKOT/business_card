@@ -37,5 +37,8 @@ jQuery.ias({
     pagination: '.pagination',
     next: 'span.next a',
     loader: '<img src="/assets/loading.gif" class=/"text-center" />',
-    onRenderComplete: function() {}
+    onRenderComplete: function() {
+        init_sliders();
+        async_images();
+    }
 });

@@ -1,4 +1,4 @@
-$ ->
+window.async_images = ->
   $.each($('.async_img'), (i, img) ->
     $img = $(img)
     $downloadingImage = $("<img>");
@@ -7,3 +7,6 @@ $ ->
     )
     $downloadingImage.attr('src', $img.data('src'))
   )
+
+$ ->
+  async_images()
