@@ -178,14 +178,20 @@ body {
   background-image: url('<%= asset_path("ru.gif") %> ');
 }
 
-.user-link {text-align: center;}
+.user-links {
+  margin: 0 auto;
+  display: table;
+}
+.user-link {
+  text-align: center;
+  display: inline-block;
+}
 
 .user-link a {
-  margin: 5px;
   width: 45px;
   height: 45px;
-  float: left;
-  display: inline-block;
+  margin: 5px;
+  display: block;
   vertical-align: middle;
   color: #fefefe;
   background-color: #428bca;

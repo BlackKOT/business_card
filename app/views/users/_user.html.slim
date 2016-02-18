@@ -2,7 +2,7 @@
   = link_to ng_link(user_projects_path(user_id: '{{ user.id }}')) do
     img src='' data-ng-src="{{ user.avatar_url }}" class='img-circle img-responsive centered fix-size'
     h2.text-center {{user.full_name}}
-    .inline data-ng-repeat='userLink in user.user_links track by $index'
-      .user-link
-        a href="{{userLink.link}}"
-          i.fa class="fa-{{userLink.resource_name}}"
+  .user-links
+    .user-link data-ng-repeat='userLink in user.user_links track by $index'
+      a href="{{userLink.link}}"
+        i.fa class="fa-{{userLink.resource_name}}"
