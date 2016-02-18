@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
   end
 
   def as_json(options = {})
-    { full_name: full_name, avatar_url: avatar.url || PictureUploader.default_url, id: id }
+    { full_name: full_name,
+      avatar_url: avatar.url || PictureUploader.default_url,
+      id: id,
+      user_links: user_links.as_json}
   end
 end
