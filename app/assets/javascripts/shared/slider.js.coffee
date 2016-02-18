@@ -1,4 +1,4 @@
-#= require owl.carousel.min
+#= require owl.carousel
 
 window.init_sliders = ->
   $('.owl-carousel:not(.owl-theme)').owlCarousel
