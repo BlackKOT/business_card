@@ -38,7 +38,7 @@ jQuery.ias({
     next: 'span.next a',
     loader: '<img src="/assets/loading.gif" class=/"text-center" />',
     onRenderComplete: function() {
-        init_sliders();
         async_images();
+        init_sliders();
     }
 });

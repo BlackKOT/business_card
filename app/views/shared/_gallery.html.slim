@@ -3,7 +3,7 @@
     - images.each do |img|
       = render layout: 'shared/slider_item' do
         = link_to img.path.url, data: {gallery: ''} do
-          = image_tag img.path.thumbnail.url
+          = image_tag img.path.standard.url, height: 150
 
 #blueimp-gallery.blueimp-gallery
   .slides
