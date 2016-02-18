@@ -1,7 +1,7 @@
 class UserLink < ActiveRecord::Base
   RESOURCE_NAMES = {
-      (GIT = 0) => 'Git',
-      (LINKEDIN = 1) => 'LinkedIn',
+      (GIT = 0) => 'github',
+      (LINKEDIN = 1) => 'linkedin',
   }.freeze
 
   belongs_to :user

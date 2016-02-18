@@ -5,4 +5,4 @@
     .inline data-ng-repeat='userLink in user.user_links track by $index'
       .user-link
         a href="{{userLink.link}}"
-          |{{userLink.resource_name}}
+          i.fa class="fa-{{userLink.resource_name}}"
