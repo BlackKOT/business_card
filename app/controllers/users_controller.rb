@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def index
     respond_to do |mime|
       mime.html
-      mime.json { render json: { users: User.all.as_json } }
+      mime.json { render json: { users: User.order(:id).as_json } }
     end
   end
 
