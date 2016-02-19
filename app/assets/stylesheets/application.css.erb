@@ -14,12 +14,12 @@
  *
  *= require_directory ./application
  *= require_directory ./shared
- *= require_self
 
  *= require blueimp-gallery
  *= require bootstrap-image-gallery
  *= require blueimp-gallery-indicator
  *= require blueimp-gallery-video
+ *= require_self
  */
 
 
@@ -70,6 +70,10 @@ body {
   .footer .powered_by {
     padding: 15px 0;
   }
+}
+
+.user_avatar_link {
+  display: inline-block;
 }
 
 .images {
@@ -124,7 +128,7 @@ a.new_comment div {
   padding: 4px;
 }
 
-a { outline: 0!important;}
+a, a:hover, html body a:focus { outline: 0 !important; text-decoration: none; }
 
 .content {
   padding: 5px 0 0 0;
